@@ -53,6 +53,10 @@
             </div>
           </div>
         </div>
+        <?php if(!is_user_logged_in()){ ?>
+          <button class="btn btn-primary ru_block" data-toggle="login" data-target="#login">Вход</button>
+          <button class="btn btn-primary en_block" data-toggle="login" data-target="#login">Enter</button>
+        <?php } ?>
       </div>
     </div>
   </header> 
@@ -61,68 +65,7 @@
     <?php if (is_front_page()) { ?>
       <?php if(is_user_logged_in()){ ?>
         <!-- Если зашел подписчик -->
-        <?php if(current_user_can('subscriber')){ ?>
-          <div class="container vitrin_wrap">
-            <div class="col-md-12">
-              <h1 class="vitrin_heading">Антистресс Визард Ловушка</h1>
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="vitrin">
-                    <p><h3>Добрый день!</h3></p>
-                    <p>
-                      Для того чтоб избавиться от злости, раздражения и прочих надоедливых мыслей нам часто приходится искать "свободные уши" и изливать в них свои беспокойства. Мы решили сделать программу которая справлялась бы с этой задачей и была под рукой 24 часа в сутки.
-                    </p>
-                    <p>
-                      20 декабря 2017г. программа <b>"Антистресс Визард Ловушка"</b> стала доступна пользователям. Мы продумали максимально удобный и простой интерфейс. Им одинаково удобно пользоваться на компьютере, ноутбуке, планшете и даже на смартфоне. Так, в любой момент Вы можете воспользоваться ловушкой прямо с экрана своего смартфона, для этого Вам необходим только интернет и доступ к <b>"Антистресс Визард Ловушка"</b>.
-                    </p>
-                    <p>
-                      <img src="<?php bloginfo('template_url'); ?>/img/items.png" alt="lovushka_items" class="items">
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <h2>Мы предлагаем 2 варианта использования программы</h2>
-              <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-5">
-                  <div class="vitrin">
-                    <h3>Базовый вариант</h3>
-                    <p class="vitrin_content">В базовом режиме программы <b>"Антистресс Визард Ловушка"</b> пользователю доступны быстрые протоколы ("Боюсь", "Злюсь", "Обижаюсь", "Сомневаюсь"). Эти протоколы позволяют в один "клик", за 4 минуты, избавиться от переживаний. В этом режиме, возможно ручное управление скоростью вращения ловушки. Время работы ловушки при ручном управлении осуществляется на усмотрение пользователя.</p>
-                    <h4>Стоимость базовой версии</h4>
-                    <div class="price">5500 руб./год.</div>
-                  </div>
-                </div>
-                <div class="col-sm-5">
-                  <div class="vitrin">
-                    <h3>Расширенный вариант</h3>
-                    <p class="vitrin_content">Раширенный режим программы <b>"Антистресс Визард Ловушка"</b> включает в себя все возможности базового режима, а так же механизм для "Пересмотра личной истории". В этом режиме, можно выбрать до 2-х актуальных проблем из списка и следую подсказкам программы провести глубокую проработку личной истории. В этом режиме скоростью вращения лоушки управляет программа. На разных этапах она может меняться</p>
-                    <h4>Стоимость расширенной версии</h4>
-                    <div class="price">10000 руб./год.</div>
-                  </div>
-                </div>
-                <div class="col-sm-1"></div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <h2>Как приобрести доступ к программе?</h2>
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="vitrin">
-                    Для того чтоб приобрести доступ к программе напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a> указав в письме какой вариант работы Вы выбираете.
-                    <h3></h3>
-                    <h4>Юридическая информация:</h4>
-                    <p><a href="mailto:info@chikurov.com">info@chikurov.com</a> / +7 (495) 135-25-48</p>
-                    <p>ОГРНИП: 314910224600336</p>
-                    <p>ИНН: 7706092528</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- Если зашел участник или администратор -->
-        <?php } elseif(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
+        <?php if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <div class="btn-group lang_block">
             <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>
@@ -326,79 +269,72 @@
           <?php endif; ?>
         <?php } ?>
       <?php } else { ?>
+        <div class="container vitrin_wrap">
+          <div class="col-md-12">
+            <h1 class="vitrin_heading">Антистресс Визард Ловушка</h1>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="vitrin">
+                  <p><h3>Добрый день!</h3></p>
+                  <p>
+                    Для того чтоб избавиться от злости, раздражения и прочих надоедливых мыслей нам часто приходится искать "свободные уши" и изливать в них свои беспокойства. Мы решили сделать программу которая справлялась бы с этой задачей и была под рукой 24 часа в сутки.
+                  </p>
+                  <p>
+                    20 декабря 2017г. программа <b>"Антистресс Визард Ловушка"</b> стала доступна пользователям. Мы продумали максимально удобный и простой интерфейс. Им одинаково удобно пользоваться на компьютере, ноутбуке, планшете и даже на смартфоне. Так, в любой момент Вы можете воспользоваться ловушкой прямо с экрана своего смартфона, для этого Вам необходим только интернет и доступ к <b>"Антистресс Визард Ловушка"</b>.
+                  </p>
+                  <p>
+                    <img src="<?php bloginfo('template_url'); ?>/img/items.png" alt="lovushka_items" class="items">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <h2>Мы предлагаем 2 варианта использования программы</h2>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-5">
+                <div class="vitrin">
+                  <h3>Базовый вариант</h3>
+                  <p class="vitrin_content">В базовом режиме программы <b>"Антистресс Визард Ловушка"</b> пользователю доступны быстрые протоколы ("Боюсь", "Злюсь", "Обижаюсь", "Сомневаюсь"). Эти протоколы позволяют в один "клик", за 4 минуты, избавиться от переживаний. В этом режиме, возможно ручное управление скоростью вращения ловушки. Время работы ловушки при ручном управлении осуществляется на усмотрение пользователя.</p>
+                  <h4>Стоимость базовой версии</h4>
+                  <div class="price">5500 руб./год.</div>
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <div class="vitrin">
+                  <h3>Расширенный вариант</h3>
+                  <p class="vitrin_content">Раширенный режим программы <b>"Антистресс Визард Ловушка"</b> включает в себя все возможности базового режима, а так же механизм для "Пересмотра личной истории". В этом режиме, можно выбрать до 2-х актуальных проблем из списка и следую подсказкам программы провести глубокую проработку личной истории. В этом режиме скоростью вращения лоушки управляет программа. На разных этапах она может меняться</p>
+                  <h4>Стоимость расширенной версии</h4>
+                  <div class="price">10000 руб./год.</div>
+                </div>
+              </div>
+              <div class="col-sm-1"></div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <h2>Как приобрести доступ к программе?</h2>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="vitrin">
+                  Для того чтоб приобрести доступ к программе напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a> указав в письме какой вариант работы Вы выбираете.
+                  <h3></h3>
+                  <h4>Юридическая информация:</h4>
+                  <p><a href="mailto:info@chikurov.com">info@chikurov.com</a> / +7 (495) 135-25-48</p>
+                  <p>ОГРНИП: 314910224600336</p>
+                  <p>ИНН: 7706092528</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
-              <div class="login__form">
-                <div class="btn-group lang_block">
-                  <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>
-                  <button type="button" data-lang="en" data-speed="4" class="btn btn-sm btn-default btn_lang btn_lang_en">EN</button>
-                </div>
-                <!-- LOGIN -->
-                <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
-                  <p>
-                    <label for="user_login"><span class="ru_block">Логин</span><span class="hidden en_block">Login</span><br />
-                      <input type="text" name="log" id="user_login" class="input" value="<?php echo esc_attr($user_login); ?>" size="20" />
-                    </label>
-                  </p>
-                  <p>
-                    <label for="user_pass"><span class="ru_block">Пароль</span><span class="hidden en_block">Password</span><br />
-                      <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" />
-                    </label>
-                  </p>
-                  <?php
-                  /**
-                   * Fires following the 'Password' field in the login form.
-                   *
-                   * @since 2.1.0
-                   */
-                  do_action( 'login_form' );
-                  ?>
-                  <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" <?php checked( $rememberme ); ?> /> <span class="ru_block">Запомнить меня</span><span class="hidden en_block">Remember me</span></label></p>
-                  <!-- <p class="note_small ru_block">Для доступа к программе напишите на <a class="bablosadres" href="mailto:info@chikurov.com" style="color: #fff;">info@chikurov.com</a></p>
-                  <p class="note_small hidden en_block">To access the program, write to <a class="bablosadres" href="mailto:info@chikurov.com" style="color: #fff;">info@chikurov.com</a></p> -->
-                  <p class="submit">
-                      <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large ru_block" value="Войти" />
-                      <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large hidden en_block" value="Login" />
-                      <?php   if ( $interim_login ) { ?>
-                          <input type="hidden" name="interim-login" value="1" />
-                      <?php   } else { ?>
-                          <input type="hidden" name="redirect_to" value="<?php echo esc_attr($redirect_to); ?>" />
-                      <?php   } ?>
-                      <?php   if ( $customize_login ) : ?>
-                          <input type="hidden" name="customize-login" value="1" />
-                      <?php   endif; ?>
-                      <input type="hidden" name="testcookie" value="1" />
-                  </p>
-                  <p class="ru_block">У Вас еще нет учетной записи? <span class="toRegistration">Зарегистрируйтесь</span> в "Wizard Lovuska" и узнайте как получить доступ</p>
-                  <p class="hidden en_block">Do not have an account yet? <span class="toRegistration">Register</span> in "Wizard Lovuska" and learn how to get access</p>
-                </form>
-
-                <!-- REGISTRATION -->
-                <form id="registerform" class="hidden" action="<?php echo site_url('wp-login.php?action=register'); ?>" method="post">
-                  <p>
-                    <label for="user_login">
-                      Придумайте логин<br>
-                      <input type="text" name="user_login" id="user_login" class="input" value="" size="20" style="">
-                    </label>
-                  </p>
-                  <p>
-                    <label for="user_email">
-                      E-mail<br>
-                      <input type="email" name="user_email" id="user_email" class="input" value="" size="25">
-                    </label>
-                  </p>
-
-                  <p id="reg_passmail">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
-
-                  <br class="clear">
-                  <input type="hidden" name="redirect_to" value="">
-
-                  <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Регистрация"></p>
-                  <p class="ru_block">У Вас уже есть учетная запись? <span class="toLogin">Войдите</span> в "Wizard Lovuska" используя свои логин и пароль</p>
-                  <p class="hidden en_block">Do you already have an account? <span class="toLogin">Enter</span> in "Wizard Lovuska" using your login and password</p>
-                </form>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -568,6 +504,90 @@
           Click on the button of your experience. Put the middle finger of the right hand in the center of the LOVUSHKA and start to speak out your problems. The LOVUSHKA will turn off automatically. Repeat if necessary. The number of repetitions is unlimited.<br>
           <b>Method 2. Revision of personal history.</b><br>
           Please, choose no more than two problems from the list. Put you third right finger to the centre of the picture and try to recall the situations from your life that are offered by the device. Please don’t imagine. Be honest to yourself. Continue it no less than 2 min for every issue. It is recommended to repeat this procedure 4 times per month or more. Next time you can choose another issues from the list.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
+          <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Вход/Регистрация</span><span class="hidden en_block">Login/Register</span></h4>
+        </div>
+        <div class="modal-text">
+          <div class="login__form">
+            <div class="btn-group lang_block">
+              <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>
+              <button type="button" data-lang="en" data-speed="4" class="btn btn-sm btn-default btn_lang btn_lang_en">EN</button>
+            </div>
+            <!-- LOGIN -->
+            <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+              <p>
+                <label for="user_login"><span class="ru_block">Логин</span><span class="hidden en_block">Login</span><br />
+                  <input type="text" name="log" id="user_login" class="input" value="<?php echo esc_attr($user_login); ?>" size="20" />
+                </label>
+              </p>
+              <p>
+                <label for="user_pass"><span class="ru_block">Пароль</span><span class="hidden en_block">Password</span><br />
+                  <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" />
+                </label>
+              </p>
+              <?php
+              /**
+               * Fires following the 'Password' field in the login form.
+               *
+               * @since 2.1.0
+               */
+              do_action( 'login_form' );
+              ?>
+              <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" <?php checked( $rememberme ); ?> /> <span class="ru_block">Запомнить меня</span><span class="hidden en_block">Remember me</span></label></p>
+              <p class="submit">
+                  <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large ru_block" value="Войти" />
+                  <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large hidden en_block" value="Login" />
+                  <?php   if ( $interim_login ) { ?>
+                      <input type="hidden" name="interim-login" value="1" />
+                  <?php   } else { ?>
+                      <input type="hidden" name="redirect_to" value="<?php echo esc_attr($redirect_to); ?>" />
+                  <?php   } ?>
+                  <?php   if ( $customize_login ) : ?>
+                      <input type="hidden" name="customize-login" value="1" />
+                  <?php   endif; ?>
+                  <input type="hidden" name="testcookie" value="1" />
+              </p>
+              <p class="ru_block">У Вас еще нет учетной записи? <span class="toRegistration">Зарегистрируйтесь</span> в "Wizard Lovuska" и узнайте как получить доступ</p>
+              <p class="hidden en_block">Do not have an account yet? <span class="toRegistration">Register</span> in "Wizard Lovuska" and learn how to get access</p>
+            </form>
+
+            <!-- REGISTRATION -->
+            <form id="registerform" class="hidden" action="<?php echo site_url('wp-login.php?action=register'); ?>" method="post">
+              <p>
+                <label for="user_login">
+                  Придумайте логин<br>
+                  <input type="text" name="user_login" id="user_login" class="input" value="" size="20" style="">
+                </label>
+              </p>
+              <p>
+                <label for="user_email">
+                  E-mail<br>
+                  <input type="email" name="user_email" id="user_email" class="input" value="" size="25">
+                </label>
+              </p>
+
+              <p id="reg_passmail">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
+
+              <br class="clear">
+              <input type="hidden" name="redirect_to" value="">
+
+              <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Регистрация"></p>
+              <p class="ru_block">У Вас уже есть учетная запись? <span class="toLogin">Войдите</span> в "Wizard Lovuska" используя свои логин и пароль</p>
+              <p class="hidden en_block">Do you already have an account? <span class="toLogin">Enter</span> in "Wizard Lovuska" using your login and password</p>
+            </form>
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>

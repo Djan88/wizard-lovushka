@@ -477,6 +477,12 @@ button.btn.btn_login
     {
         white-space: normal;
     }
+    button.btn.btn_login
+    {
+        position: static;
+        display: block;
+        margin: auto;
+    }
 }
 @media (max-width: 500px) {
     .logo img {

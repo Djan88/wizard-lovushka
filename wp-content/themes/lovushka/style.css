@@ -445,6 +445,15 @@ button.btn.btn_login
     bottom: 0;
     border: 2px solid #000;
 }
+.login_modal .modal-content
+{
+    background: #FDA009;
+    text-align: center;
+}
+.login_modal .modal-footer
+{
+    text-align: center;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

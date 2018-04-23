@@ -54,8 +54,8 @@
           </div>
         </div>
         <?php if(!is_user_logged_in()){ ?>
-          <button class="btn btn-warning btn_login ru_block" data-toggle="modal" data-target="#login">Вход</button>
-          <button class="btn btn-warning btn_login en_block" data-toggle="modal" data-target="#login">Enter</button>
+          <button class="btn btn-success btn_login ru_block" data-toggle="modal" data-target="#login">ВХОД</button>
+          <button class="btn btn-success btn_login en_block" data-toggle="modal" data-target="#login">ENTER</button>
         <?php } ?>
       </div>
     </div>

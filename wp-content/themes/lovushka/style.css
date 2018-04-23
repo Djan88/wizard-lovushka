@@ -433,6 +433,18 @@ img.items
     max-width: 100%;
     height: auto;
 }
+.header_area 
+{
+    position: relative;
+}
+button.btn.btn_login 
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 2px solid #000;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

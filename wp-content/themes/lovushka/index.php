@@ -560,6 +560,7 @@
               <p class="submit">
                   <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large ru_block" value="Войти" />
                   <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large hidden en_block" value="Login" />
+                  <input type="hidden" name="redirect_to" value="/" />
                   <?php   if ( $interim_login ) { ?>
                       <input type="hidden" name="interim-login" value="1" />
                   <?php   } else { ?>

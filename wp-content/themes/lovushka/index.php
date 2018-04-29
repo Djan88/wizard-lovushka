@@ -66,7 +66,15 @@
       <?php if(is_user_logged_in()){ ?>
         <!-- Если зашел подписчик -->
         <?php if(current_user_can('subscriber')) { ?>
-          <div>test</div>
+          <div class="row regard_info">
+            <div class="col-md-12">
+              <h2>Вы зарегистрированы в программе "Антистресс Визард Ловушка"</h2>
+            </div>
+            <div class="col-md-12">
+              Для получения доступа к функционалу программы необходимо выбрать один из пакетов. Это можно сделать в <a href="/kabinet">личном кабинете</a> пользователя, во вкладке "все доступы".
+              <p>Все вопросы задавайте на <a href="mailto:info@chikurov.com">info@chikurov.com</a>, Вам оперативно ответят</p>
+            </div>
+          </div>
         <?php } else if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <div class="btn-group lang_block">

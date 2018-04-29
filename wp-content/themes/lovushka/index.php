@@ -66,11 +66,11 @@
       <?php if(is_user_logged_in()){ ?>
         <!-- Если зашел подписчик -->
         <?php if(current_user_can('subscriber')) { ?>
-          <div class="row regard_info">
+          <div class="row">
             <div class="col-md-12">
               <h2>Вы зарегистрированы в программе "Антистресс Визард Ловушка"</h2>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 regard_info">
               Для получения доступа к функционалу программы необходимо выбрать один из пакетов. Это можно сделать в <a href="/kabinet">личном кабинете</a> пользователя, во вкладке "все доступы".
               <p>Все вопросы задавайте на <a href="mailto:info@chikurov.com">info@chikurov.com</a>, Вам оперативно ответят</p>
             </div>
@@ -370,7 +370,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-left" style="padding-top: 7px;">
-            <a href="/">WizardLovushka</a> | v 1.1 | &copy; 
+            <a href="/">WizardLovushka</a> | v 2.0 | &copy; 
             <a class="ru_block" href="http://www.chikurov.com" target="_blank">Юрий Чикуров</a>
             <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2018
           </div>

@@ -454,6 +454,10 @@ button.btn.btn_login
 {
     text-align: center;
 }
+.regard_info
+{
+    font-size: 22px;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

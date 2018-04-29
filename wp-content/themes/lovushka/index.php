@@ -65,7 +65,9 @@
     <?php if (is_front_page()) { ?>
       <?php if(is_user_logged_in()){ ?>
         <!-- Если зашел подписчик -->
-        <?php if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
+        <?php if(current_user_can('subscriber')) { ?>
+          <div>test</div>
+        <?php } else if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <div class="btn-group lang_block">
             <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>

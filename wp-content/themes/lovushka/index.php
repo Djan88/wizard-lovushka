@@ -617,5 +617,11 @@
       </div>
     </div>
   </div>
+  <?php if(!is_user_logged_in()&&is_front_page()) { ?>
+      <script>
+          //Отображение меню в модали
+          jQuery('#login').modal('show');
+      </script>
+  <?php } ?>
 </body>
 </html>

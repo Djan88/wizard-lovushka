@@ -161,12 +161,14 @@
                   <div style="text-align: left; font-size: 18px;">
                     <b class="ru_block">Чтоб получить доступ к программе необходимо сделать следующее:</b>
                     <b class="en_block hidden">To access the program you need to do the following:</b>
-                    <p class="ru_block">
-                        <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
-                    </p>
-                    <p class="en_block hidden">
-                        <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Sign in</span> to the website. If you do not have an account yet "Wizard Lovushka" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">register now</span>
-                    </p>
+                    <?php if (!is_user_logged_in()) { ?>
+                      <p class="ru_block">
+                          <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
+                      </p>
+                      <p class="en_block hidden">
+                          <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Sign in</span> to the website. If you do not have an account yet "Wizard Lovushka" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">register now</span>
+                      </p>
+                    <?php } ?>
                     <p class="ru_block">
                         <span class="article_main">— </span> Войдите в <a target="_blank" href="/kabinet">личный кабинет</a> пользователя.
                     </p>

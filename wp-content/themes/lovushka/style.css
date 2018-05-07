@@ -468,6 +468,16 @@ button.btn.btn_login
     color: #3379b7;
     text-decoration: none;
 }
+.btn.btn-kabinet 
+{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 20px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    z-index: 999;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

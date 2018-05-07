@@ -73,18 +73,20 @@
               <div class="col-md-12">
                   <div class="row">
                       <div class="col-md-10 col-md-offset-1">
-                          <div class="vitrin vitrin-content vitrin-article vitrin-centered">
-                              Вы видите это сообщение потому что зарегистрированы в <a href="http://wizardmachine.ru/">"Антистресс Визард Ловушка"</a> но на данный момент не имеете действующего доступа к программе.<br>
-                              Узнайте как получить доступ к программе по <a href="#howto">этой ссылке</a>
+                          <div class="vitrin vitrin-content vitrin-article vitrin-centered ru_block">
+                              Вы видите это сообщение потому что зарегистрированы в программе<a href="/">"Антистресс Визард Ловушка"</a> но на данный момент не имеете действующего доступа к функционалу.<br>Узнайте как получить доступ перейдя по <a href="#howto">этой ссылке</a>
+                          </div>
+                          <div class="vitrin vitrin-content vitrin-article vitrin-centered en_block hidden">You see this message because they are registered in the program<a href="/">"Antistress Wizard Lovushka"</a> but at the moment you do not have an effective access to the functionality.<br>Learn how to access by clicking <a href="#howto">this link</a>
                           </div>
                       </div>
                   </div>
               </div>
           <?php } ?>
           <div class="col-md-12">
-            <h1 class="vitrin_heading">Антистресс Визард Ловушка</h1>
+            <h1 class="vitrin_heading ru_block">Антистресс Визард Ловушка</h1>
+            <h1 class="vitrin_heading en_block hidden">Antistress Wizard Lovushka</h1>
             <div class="row">
-              <div class="col-md-10 col-md-offset-1">
+              <div class="col-md-10 col-md-offset-1 ru_block">
                 <div class="vitrin">
                   <p><h3>Добрый день!</h3></p>
                   <p>
@@ -98,60 +100,103 @@
                   </p>
                 </div>
               </div>
+              <div class="col-md-10 col-md-offset-1 en_block hidden">
+                <div class="vitrin">
+                  <p><h3>Good day!</h3></p>
+                  <p>
+                    In order to get rid of anger, irritation and other annoying thoughts, we often have to look for "free ears" and pour out their concerns in them. We decided to make a program that would cope with this task and was at hand 24 hours a day.
+                  </p>
+                  <p>
+                    December 20, 2017 program <b>"Antistress Wizard Lovushka"</b> became available to users. We thought of the most convenient and simple interface. They are equally convenient to use on a computer, laptop, tablet and even on a smartphone. So, at any time you can use the trap directly from your smartphone's screen, for this you need only the Internet and access to<b>"Antistress Wizard Lovushka"</b>.
+                  </p>
+                  <p>
+                    <img src="<?php bloginfo('template_url'); ?>/img/items.png" alt="lovushka_items" class="items">
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-12">
-            <h2>Мы предлагаем 2 варианта использования программы</h2>
+            <h2 class="ru_block">Мы предлагаем 2 варианта использования программы</h2>
+            <h2 class="en_block hidden">We offer 2 options for using the program</h2>
             <div class="row">
               <div class="col-sm-1"></div>
               <div class="col-sm-5">
                 <div class="vitrin">
-                  <h3>Базовый вариант</h3>
-                  <p class="vitrin_content">В базовом режиме программы <b>"Антистресс Визард Ловушка"</b> пользователю доступны быстрые протоколы ("Боюсь", "Злюсь", "Обижаюсь", "Сомневаюсь"). Эти протоколы позволяют в один "клик", за 4 минуты, избавиться от переживаний. В этом режиме, возможно ручное управление скоростью вращения ловушки. Время работы ловушки при ручном управлении осуществляется на усмотрение пользователя.</p>
-                  <h4>Стоимость базовой версии</h4>
-                  <div class="price">5500 руб./год.</div>
+                  <h3 class="ru_block">Basic mode</h3>
+                  <h3 class="en_block hidden">Базовый вариант</h3>
+                  <p class="vitrin_content ru_block">В базовом режиме программы <b>"Антистресс Визард Ловушка"</b> пользователю доступны быстрые протоколы ("Боюсь", "Злюсь", "Обижаюсь", "Сомневаюсь"). Эти протоколы позволяют в один "клик", за 4 минуты, избавиться от переживаний. В этом режиме, возможно ручное управление скоростью вращения ловушки. Время работы ловушки при ручном управлении осуществляется на усмотрение пользователя.</p>
+                  <p class="vitrin_content en_block hidden">In the basic mode of the program <b>"Antistress Wizard Lovushka"</b>  fast protocols are available to the user ("I'm Afraid", "I'm angry", "I'm offended", "I doubt"). These protocols allow one "click", in 4 minutes, to get rid of the experience. In this mode, it is possible to manually control the speed of rotation of the trap. The time of the trap operation with manual control is at the discretion of the user.</p>
+                  <h4 class="ru_block">Стоимость базовой версии</h4>
+                  <h4 class="en_block hidden">Cost of the basic mode</h4>
+                  <div class="price ru_block">5500 руб./год.</div>
+                  <div class="price en_block hidden">5500 rur. / year.</div>
                 </div>
               </div>
               <div class="col-sm-5">
                 <div class="vitrin">
-                  <h3>Расширенный вариант</h3>
-                  <p class="vitrin_content">Раширенный режим программы <b>"Антистресс Визард Ловушка"</b> включает в себя все возможности базового режима, а так же механизм для "Пересмотра личной истории". В этом режиме, можно выбрать до 2-х актуальных проблем из списка и следую подсказкам программы провести глубокую проработку личной истории. В этом режиме скоростью вращения лоушки управляет программа. На разных этапах она может меняться</p>
-                  <h4>Стоимость расширенной версии</h4>
-                  <div class="price">10000 руб./год.</div>
+                  <h3 class="ru_block">Расширенный вариант</h3>
+                  <h3 class="en_block hidden">Extended mode</h3>
+                  <p class="vitrin_content ru_block">Раширенный режим программы <b>"Антистресс Визард Ловушка"</b> включает в себя все возможности базового режима, а так же механизм для "Пересмотра личной истории". В этом режиме, можно выбрать до 2-х актуальных проблем из списка и следую подсказкам программы провести глубокую проработку личной истории. В этом режиме скоростью вращения лоушки управляет программа. На разных этапах она может меняться</p>
+                  <p class="vitrin_content en_block hidden">Extended program mode <b>"Antistress Wizard Lovushka"</b> includes all the features of the basic mode, as well as a mechanism for the "Revision of personal history." In this mode, you can select up to 2 relevant problems from the list and follow the prompts of the program to conduct a deep study of your personal history. In this mode, the speed of rotation of the louver is controlled by the program. At different stages it can vary</p>
+                  <h4 class="ru_block">Стоимость расшеренной версии</h4>
+                  <h4 class="en_block hidden">Cost of the extended mode</h4>
+                  <div class="price ru_block">10000 руб./год.</div>
+                  <div class="price en_block hidden">10000 rur. / year.</div>
                 </div>
               </div>
               <div class="col-sm-1"></div>
             </div>
           </div>
           <div class="col-md-12">
-            <h2>Как приобрести доступ к программе?</h2>
+            <h2 class="ru_block">Как приобрести доступ к программе?</h2>
+            <h2 class="en_block hidden">How can I get access to the program?</h2>
             <a name="howto"></a>
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <div class="vitrin">
                   <div style="text-align: left; font-size: 18px;">
-                    <b>Чтоб получить доступ к программе необходимо сделать следующее:</b>
-                    <p>
+                    <b class="ru_block">Чтоб получить доступ к программе необходимо сделать следующее:</b>
+                    <b class="en_block hidden">To access the program you need to do the following:</b>
+                    <p class="ru_block">
                         <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
                     </p>
-                    <p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Sign in</span> to the website. If you do not have an account yet "Wizard Lovushka" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">register now</span>
+                    </p>
+                    <p class="ru_block">
                         <span class="article_main">— </span> Войдите в <a target="_blank" href="/kabinet">личный кабинет</a> пользователя.
                     </p>
-                    <p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span> Sign in to<a target="_blank" href="/kabinet">user's personal</a> cabinet.
+                    </p>
+                    <p class="ru_block">
                         <span class="article_main">— </span> Выберите вкладку <b>"Все доступы"</b>
                     </p>
-                    <p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span> Select the tab <b>"All Accesses"</b>
+                    </p>
+                    <p class="ru_block">
                         <span class="article_main">— </span> Выберите тип аккаунта и нажмите "Приобрести" -&gt; "Оплатить через "Робокасса" -&gt; Выберите удобный для Вас способ и произведите оплату.
                     </p>
-                    <p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span> Select the account type and click "Purchase" -&gt; "Pay through "Robocassa" -&gt; Choose the method convenient for you and make payment.
+                    </p>
+                    <p class="ru_block">
                         По завершении оплаты на Вашу почту поступит письмо с подтверждением. С этой минуты Ваш доступ к программе "Визард Ловушка" активен! Приятного пользования!
+                    </p>
+                    <p class="en_block hidden">
+                        Upon completion of payment, a confirmation letter will be sent to your mail. From now on, your access to the "Wizard Lovushka" program is active! Pleasant use!
                     </p>
                     <h3></h3>
                   </div>
-                  <h4>Юридическая информация:</h4>
+                  <h4 class="ru_block">Юридическая информация:</h4>
+                  <h4 class="en_block hidden">Legal information:</h4>
                   <p><a href="mailto:info@chikurov.com">info@chikurov.com</a> / +7 (495) 135-25-48</p>
-                  <p>ОГРНИП: 314910224600336</p>
-                  <p>ИНН: 7706092528</p>
+                  <p class="ru_block">ОГРНИП: 314910224600336</p>
+                  <p class="en_block hidden">OGRNIP: 314910224600336</p>
+                  <p class="ru_block">ИНН: 7706092528</p>
+                  <p class="en_block hidden">INN: 7706092528</p>
                 </div>
               </div>
             </div>

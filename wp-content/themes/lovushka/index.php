@@ -77,7 +77,7 @@
                   <div class="row">
                       <div class="col-md-10 col-md-offset-1">
                           <div class="vitrin vitrin-content vitrin-article vitrin-centered ru_block">
-                              Вы видите это сообщение потому что зарегистрированы в программе<a href="/">"Антистресс Визард Ловушка"</a> но на данный момент не имеете действующего доступа к функционалу.<br>Узнайте как получить доступ перейдя по <a href="#howto">этой ссылке</a>
+                              Вы видите это сообщение потому что зарегистрированы в программе<a href="/"> "Антистресс Визард Ловушка"</a> но на данный момент не имеете действующего доступа к функционалу.<br>Узнайте как получить доступ перейдя по <a href="#howto">этой ссылке</a>
                           </div>
                           <div class="vitrin vitrin-content vitrin-article vitrin-centered en_block hidden">You see this message because they are registered in the program<a href="/">"Antistress Wizard Lovushka"</a> but at the moment you do not have an effective access to the functionality.<br>Learn how to access by clicking <a href="#howto">this link</a>
                           </div>

@@ -65,6 +65,10 @@
     <?php if (is_front_page()) { ?>
       <?php if (!is_user_logged_in() || current_user_can('subscriber')) { ?>
         <div class="container vitrin_wrap">
+          <div class="btn-group lang_block">
+            <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>
+            <button type="button" data-lang="en" data-speed="4" class="btn btn-sm btn-default btn_lang btn_lang_en">EN</button>
+          </div>
           <?php if(current_user_can('subscriber')){ ?>
               <div class="col-md-12">
                   <div class="row">

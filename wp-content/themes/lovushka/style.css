@@ -463,6 +463,11 @@ button.btn.btn_login
     border: 2px solid darkred;
     color: darkgoldenrod;
 }
+.vitrin .reg_login 
+{
+    color: #3379b7;
+    text-decoration: none;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

@@ -420,11 +420,11 @@ jQuery('.instruction_block').on('click', function(event) {
     lang = localStorage.getItem('lang');
     jQuery('.btn_lang').removeClass('active');
     if (lang == 'en') {
-      jQuery('.btn_lang_en').addClass('active')
+      jQuery('.btn_lang_ru').addClass('active')
       jQuery('.en_block').removeClass('hidden');
       jQuery('.ru_block').addClass('hidden');
     } else {
-      jQuery('.btn_lang_ru').addClass('active');
+      jQuery('.btn_lang_en').addClass('active');
       jQuery('.en_block').addClass('hidden');
       jQuery('.ru_block').removeClass('hidden');
     }

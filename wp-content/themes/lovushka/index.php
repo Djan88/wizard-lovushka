@@ -615,8 +615,7 @@
             <!-- REGISTRATION -->
             <form id="registerform" class="hidden" action="<?php echo site_url('wp-login.php?action=register'); ?>" method="post">
               <p>
-                <label for="user_login">
-                  Придумайте логин<br>
+                <label for="user_login"><span class="ru_block">Придумайте логин</span><span class="hidden en_block">Create a username</span><br>
                   <input type="text" name="user_login" id="user_login" class="input" value="" size="20" style="">
                 </label>
               </p>
@@ -627,12 +626,13 @@
                 </label>
               </p>
 
-              <p id="reg_passmail">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
+              <p id="reg_passmail ru_block">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
+              <p id="reg_passmail hidden en_block">Confirmation of registration will be sent to your e-mail.</p>
 
               <br class="clear">
               <input type="hidden" name="redirect_to" value="">
 
-              <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Регистрация"></p>
+              <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large ru_block" value="Регистрация"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large hidden en_block" value="Registration"></p>
               <p class="ru_block">У Вас уже есть учетная запись? <span class="toLogin">Войдите</span> в "Wizard Lovuska" используя свои логин и пароль</p>
               <p class="hidden en_block">Do you already have an account? <span class="toLogin">Enter</span> in "Wizard Lovuska" using your login and password</p>
             </form>

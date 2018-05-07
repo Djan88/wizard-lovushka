@@ -458,6 +458,11 @@ button.btn.btn_login
 {
     font-size: 22px;
 }
+.vitrin-article
+{
+    border: 2px solid darkred;
+    color: darkgoldenrod;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

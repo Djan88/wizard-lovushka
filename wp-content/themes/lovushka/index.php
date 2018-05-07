@@ -65,6 +65,18 @@
     <?php if (is_front_page()) { ?>
       <?php if (!is_user_logged_in() || current_user_can('subscriber')) { ?>
         <div class="container vitrin_wrap">
+          <?php if(current_user_can('subscriber')){ ?>
+              <div class="col-md-12">
+                  <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                          <div class="vitrin vitrin-content vitrin-article vitrin-centered">
+                              Вы видите это сообщение, потому, что зарегистрированы на сайте <a href="http://wizardmachine.ru/">"WizardMachine"</a> но на данный момент не имеете действующего доступа к программе.<br>
+                              Узнайте как получить доступ к программе по <a href="#howto">этой ссылке</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <?php } ?>
           <div class="col-md-12">
             <h1 class="vitrin_heading">Антистресс Визард Ловушка</h1>
             <div class="row">

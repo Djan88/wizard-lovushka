@@ -626,8 +626,8 @@
                 </label>
               </p>
 
-              <p id="reg_passmail ru_block">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
-              <p id="reg_passmail hidden en_block">Confirmation of registration will be sent to your e-mail.</p>
+              <p id="reg_passmail" class="ru_block">Подтверждение регистрации будет отправлено на ваш e-mail.</p>
+              <p id="reg_passmail" class="hidden en_block">Confirmation of registration will be sent to your e-mail.</p>
 
               <br class="clear">
               <input type="hidden" name="redirect_to" value="">

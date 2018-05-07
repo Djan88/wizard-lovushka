@@ -112,7 +112,20 @@
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <div class="vitrin">
-                  Для того чтоб приобрести доступ к программе напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a> указав в письме какой вариант работы Вы выбираете.
+                  <b>Чтоб получить доступ к программе необходимо сделать следующее:</b>
+                  <p>
+                      <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
+                  </p>
+                  <p>
+                      <span class="article_main">— </span> Войдите в <a target="_blank" href="/kabinet">личный кабинет</a> пользователя.
+                  </p>
+                  <p>
+                      <span class="article_main">— </span> Выберите вкладку <b>"Все доступы"</b>, нажмите "Приобрести" -&gt; "Оплатить через "Робокасса" -&gt; Выберите удобный для Вас способ и произведите оплату.<br>
+                      <i style="text-align: center;">(Напоминаем что начиная со второго года пользователи "WizardDuos" получают скидку на продление лицензии 30%. Оплату продления со скидкой можно произвести на вкладке "Текущий доступ")</i>
+                  </p>
+                  <p>
+                      По завершении оплаты на Вашу почту поступит письмо с подтверждением. С этой минуты Ваш доступ к программе "WizardDuos" активен! Приятного пользования!
+                  </p>
                   <h3></h3>
                   <h4>Юридическая информация:</h4>
                   <p><a href="mailto:info@chikurov.com">info@chikurov.com</a> / +7 (495) 135-25-48</p>

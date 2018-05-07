@@ -70,7 +70,7 @@
                   <div class="row">
                       <div class="col-md-10 col-md-offset-1">
                           <div class="vitrin vitrin-content vitrin-article vitrin-centered">
-                              Вы видите это сообщение, потому, что зарегистрированы на сайте <a href="http://wizardmachine.ru/">"WizardMachine"</a> но на данный момент не имеете действующего доступа к программе.<br>
+                              Вы видите это сообщение, потому, что зарегистрированы в <a href="http://wizardmachine.ru/">"Антистресс Визард Ловушка"</a> но на данный момент не имеете действующего доступа к программе.<br>
                               Узнайте как получить доступ к программе по <a href="#howto">этой ссылке</a>
                           </div>
                       </div>

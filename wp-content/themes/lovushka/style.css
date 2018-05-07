@@ -519,6 +519,11 @@ button.btn.btn_login
         right: 5px;
         top: 5px;
     }
+    .btn.btn-kabinet
+    {
+        left: 5px;
+        top: 5px;
+    }
 }
 @media (max-width: 400px) {
     .logo img {
@@ -528,6 +533,11 @@ button.btn.btn_login
     .btn-group.lang_block
     {
         right: 5px;
+        top: 5px;
+    }
+    .btn.btn-kabinet
+    {
+        left: 5px;
         top: 5px;
     }
     .modal-text

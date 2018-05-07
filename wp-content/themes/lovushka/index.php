@@ -497,7 +497,7 @@
           </div>
         </div>
         <div class="modal-text hidden en_block">
-          Switch on the device and put you third right finger to the centre of the picture. Follow the instructions and try to recollect the situations from your life that were offered to you. Please be honest to yourself , do not  imagine. Hold your finger at the LOVUSHKA no less than 2min for every issue, then press the button “next” and put you finger to the centre again. Please continue the session until the instructions has been finished. This procedure is recommended to be repeated 4 times per month or more. Next time you can choose another issues from the list.
+          Switch on the device, put your third finger of the right hand to the centre of the picture and start thinking or speaking about your worries, fears, doubts, offences etc. You could repeat it several times until you feel released. It could be repeated in every cases you need.
           <div class="row text-centered">
             <div class="col-md-12">
               <button class="btn btn-primary start_prot">Enable LOVUSHKA</button>

@@ -110,7 +110,7 @@
                     December 20, 2017 program <b>"Antistress Wizard Lovushka"</b> became available to users. We thought of the most convenient and simple interface. They are equally convenient to use on a computer, laptop, tablet and even on a smartphone. So, at any time you can use the trap directly from your smartphone's screen, for this you need only the Internet and access to<b>"Antistress Wizard Lovushka"</b>.
                   </p>
                   <p>
-                    <img src="<?php bloginfo('template_url'); ?>/img/items.png" alt="lovushka_items" class="items">
+                    <img src="<?php bloginfo('template_url'); ?>/img/items_en.png" alt="lovushka_items" class="items">
                   </p>
                 </div>
               </div>

@@ -65,17 +65,7 @@
     <?php if (is_front_page()) { ?>
       <?php if(is_user_logged_in()){ ?>
         <!-- Если зашел подписчик -->
-        <?php if(current_user_can('subscriber')) { ?>
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Вы зарегистрированы в программе "Антистресс Визард Ловушка"</h2>
-            </div>
-            <div class="col-md-12 regard_info">
-              Для получения доступа к функционалу программы необходимо выбрать один из пакетов. Это можно сделать в <a href="/kabinet">личном кабинете</a> пользователя, во вкладке "все доступы".
-              <p>Все вопросы задавайте на <a href="mailto:info@chikurov.com">info@chikurov.com</a>, Вам оперативно ответят</p>
-            </div>
-          </div>
-        <?php } else if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
+        <?php if(current_user_can('contributor') || current_user_can('administrator') || current_user_can('author')) { ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <div class="btn-group lang_block">
             <button type="button" data-lang="ru" class="btn btn-sm btn-default active btn_lang btn_lang_ru">РУС</button>
@@ -278,7 +268,7 @@
           <?php endwhile; ?>
           <?php endif; ?>
         <?php } ?>
-      <?php } else { ?>
+      <?php } else if (!is_user_logged_in() || current_user_can('subscriber')) { ?>
         <div class="container vitrin_wrap">
           <div class="col-md-12">
             <h1 class="vitrin_heading">Антистресс Визард Ловушка</h1>

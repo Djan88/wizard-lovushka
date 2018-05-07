@@ -401,7 +401,7 @@
           <div class="pull-left" style="padding-top: 7px;">
             <a href="/">WizardLovushka</a> | v 2.0 | &copy; 
             <a class="ru_block" href="http://www.chikurov.com" target="_blank">Юрий Чикуров</a>
-            <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2018
+            <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2018 | <a href="/kabinet">Личный кабинет</a> | <a href="<?php echo home_url(); ?>/wp-login.php?action=logout&amp;_wpnonce=a6cad512ba">Выйти</a>
           </div>
           <?php if(is_user_logged_in()){ ?>
           <div class="pull-right">

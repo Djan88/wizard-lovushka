@@ -471,6 +471,7 @@ button.btn.btn_login
 .btn.btn-kabinet 
 {
     position: absolute;
+    padding-top: 7px;
     width: 36px;
     height: 36px;
     left: 20px;

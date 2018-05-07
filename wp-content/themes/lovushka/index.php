@@ -123,8 +123,8 @@
               <div class="col-sm-1"></div>
               <div class="col-sm-5">
                 <div class="vitrin">
-                  <h3 class="ru_block">Basic mode</h3>
-                  <h3 class="en_block hidden">Базовый вариант</h3>
+                  <h3 class="ru_block">Базовый вариант</h3>
+                  <h3 class="en_block hidden">Basic mode</h3>
                   <p class="vitrin_content ru_block">В базовом режиме программы <b>"Антистресс Визард Ловушка"</b> пользователю доступны быстрые протоколы ("Боюсь", "Злюсь", "Обижаюсь", "Сомневаюсь"). Эти протоколы позволяют в один "клик", за 4 минуты, избавиться от переживаний. В этом режиме, возможно ручное управление скоростью вращения ловушки. Время работы ловушки при ручном управлении осуществляется на усмотрение пользователя.</p>
                   <p class="vitrin_content en_block hidden">In the basic mode of the program <b>"Antistress Wizard Lovushka"</b>  fast protocols are available to the user ("I'm Afraid", "I'm angry", "I'm offended", "I doubt"). These protocols allow one "click", in 4 minutes, to get rid of the experience. In this mode, it is possible to manually control the speed of rotation of the trap. The time of the trap operation with manual control is at the discretion of the user.</p>
                   <h4 class="ru_block">Стоимость базовой версии</h4>

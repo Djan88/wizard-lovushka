@@ -193,8 +193,9 @@
                     <p class="en_block hidden">
                         Upon completion of payment, a confirmation letter will be sent to your mail. From now on, your access to the "Wizard Lovushka" program is active! Pleasant use!
                     </p>
-                    <h4 class="ru_block">С любым возникшим у Вас вопросом с удовольствием поможет наша служба технической поддержки. Напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a>. Оперативно отвечаем 7 дней в неделю. По телефону консультаций не проводим!</h4>
-                    <h4 class="en_block hidden">With any question you have, our technical support will be pleased to help. Write on<a href="mailto:info@chikurov.com">info@chikurov.com</a>. We respond promptly 7 days a week. We do not hold consultations on the phone!</h4>
+                    <h4 class="ru_block" style="text-align: center;">С любым возникшим у Вас вопросом с удовольствием поможет наша служба технической поддержки. Напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a>. Оперативно отвечаем 7 дней в неделю.</br> По телефону консультаций не проводим!</h4>
+                    <h4 class="en_block hidden" style="text-align: center;">With any question you have, our technical support will be pleased to help. Write on<a href="mailto:info@chikurov.com">info@chikurov.com</a>. We respond promptly 7 days a week.</br> We do not hold consultations on the phone!</h4>
+                    <h3></h3>
                   </div>
                   <h4 class="ru_block">Юридическая информация:</h4>
                   <h4 class="en_block hidden">Legal information:</h4>

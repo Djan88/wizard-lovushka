@@ -211,10 +211,10 @@
                        Payment is possible online transfer from a bank card (only for transfers within the Russian Federation.) 
                     </b>
                     <p class="ru_block">
-                        Для перевода перейдите по <a href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
+                        Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
                     </p>
                     <p class="en_block hidden">
-                        For translation click on the <a href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
+                        For translation click on the <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
                     </p>
                     <p class="ru_block">
                         В комментарии надо указать: <b>«Учебный курс Ловушка</b>. После оплаты обязательно пришлите нам квитанцию об оплате.

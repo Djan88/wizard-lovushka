@@ -223,10 +223,10 @@
                         In the comment, you must specify the following text: <b>"Учебный курс Ловушка"</b>. After payment, please send us a receipt for payment.
                     </p>
                     <p class="ru_block">
-                        Подключение к программе при оплате этим способом происходит в течение 24 часов. На ваш почтовый ящик будет отправлено письмо с логином и паролем.
+                        Подключение к программе, при оплате этим способом, происходит в течение 24 часов. На ваш почтовый ящик будет отправлено письмо с логином и паролем.
                     </p>
                     <p class="en_block hidden">
-                        Connection to the program when paying this way occurs within 24 hours. An email with your username and password will be sent to your mailbox.
+                        Connection to the program, when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
                     </p>
                     <h4 class="ru_block" style="text-align: center;">По любому возникшему у Вас вопросу с удовольствием поможет наша служба технической поддержки. Напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a>. Мы работаем 7 дней в неделю.</br> По телефону консультаций не проводим!</h4>
                     <h4 class="en_block hidden" style="text-align: center;">With any question you have, our technical support will be pleased to help. Write on <a href="mailto:info@chikurov.com">info@chikurov.com</a>. We respond promptly 7 days a week.</br> We do not hold consultations on the phone!</h4>

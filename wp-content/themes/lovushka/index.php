@@ -159,16 +159,15 @@
               <div class="col-md-10 col-md-offset-1">
                 <div class="vitrin">
                   <div style="text-align: left; font-size: 18px;">
-                    <h4 class="ru_block">Получить доступ к программе можно 2 способами.</br> 
-                      <p>При оплате из личного кабинета подключение происходит мгновенно.</p>
-                      <p>Если у Вас по каким-то причинам не получилось провести оплату через личный кабинет пользователя, Вы можете оплатить переводом на банковскую карту. В этом случае подключение произойдет в течение 24 часов. </p>
-                      <p>После оплаты обязательно пришлите копию квитанции о переводе на <a href="mailto:info@chikurov.com">info@chikurov.com</a>.</p>
-                    </h4>
-                    <h4 class="en_block hidden">You can access the program in 2 ways.</br> 
-                      <p>When you pay from the personal cabinet of the user, the connection is instantaneous. </p>
-                      <p>If you for some reason did not manage to pay through the user's personal cabinet, you can pay by transfer to a bank card. In this case, the connection will occur within 24 hours.</p>
-                      <p>After payment, be sure to send a receipt for transfer to<a href="mailto:info@chikurov.com">info@chikurov.com</a>.<p>
-                    </h4>
+                    <h4 class="ru_block">Получить доступ к программе можно 2 способами.</h4>
+                    <p>При оплате из личного кабинета подключение происходит мгновенно.</p>
+                    <p>Если у Вас по каким-то причинам не получилось провести оплату через личный кабинет пользователя, Вы можете оплатить переводом на банковскую карту. В этом случае подключение произойдет в течение 24 часов. </p>
+                    <p>После оплаты обязательно пришлите копию квитанции о переводе на <a href="mailto:info@chikurov.com">info@chikurov.com</a>.</p>
+                    
+                    <h4 class="en_block hidden">You can access the program in 2 ways.</h4> 
+                    <p>When you pay from the personal cabinet of the user, the connection is instantaneous. </p>
+                    <p>If you for some reason did not manage to pay through the user's personal cabinet, you can pay by transfer to a bank card. In this case, the connection will occur within 24 hours.</p>
+                    <p>After payment, be sure to send a receipt for transfer to<a href="mailto:info@chikurov.com">info@chikurov.com</a>.<p>
                     <h3></h3>
                     <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
                     <b class="en_block hidden">To access the program you need to do the following:</b>
@@ -204,8 +203,6 @@
                     <p class="en_block hidden">
                         Upon completion of payment, a confirmation letter will be sent to your mail. From now on, your access to the "Wizard Lovushka" program is active! Pleasant use!
                     </p>
-                    <h4 class="ru_block" style="text-align: center;">По любому возникшему у Вас вопросу с удовольствием поможет наша служба технической поддержки. Напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a>. Мы работаем 7 дней в неделю.</br> По телефону консультаций не проводим!</h4>
-                    <h4 class="en_block hidden" style="text-align: center;">With any question you have, our technical support will be pleased to help. Write on <a href="mailto:info@chikurov.com">info@chikurov.com</a>. We respond promptly 7 days a week.</br> We do not hold consultations on the phone!</h4>
                     <h3></h3>
                     <b class="ru_block">
                         Оплата возможна онлайн переводом с банковской карты (Только для переводов внутри РФ. Без комиссии).
@@ -231,6 +228,8 @@
                     <p class="en_block hidden">
                         Connection to the program when paying this way occurs within 24 hours. An email with your username and password will be sent to your mailbox.
                     </p>
+                    <h4 class="ru_block" style="text-align: center;">По любому возникшему у Вас вопросу с удовольствием поможет наша служба технической поддержки. Напишите на <a href="mailto:info@chikurov.com">info@chikurov.com</a>. Мы работаем 7 дней в неделю.</br> По телефону консультаций не проводим!</h4>
+                    <h4 class="en_block hidden" style="text-align: center;">With any question you have, our technical support will be pleased to help. Write on <a href="mailto:info@chikurov.com">info@chikurov.com</a>. We respond promptly 7 days a week.</br> We do not hold consultations on the phone!</h4>
                     <h3></h3>
                   </div>
                   <h4 class="ru_block">Юридическая информация:</h4>

@@ -167,7 +167,7 @@
                     <h4 class="en_block hidden">You can access the program in 2 ways.</h4> 
                     <p class="en_block hidden">When you pay from the personal cabinet of the user, the connection is instantaneous. </p>
                     <p class="en_block hidden">If you for some reason did not manage to pay through the user's personal cabinet, you can pay by transfer to a bank card. In this case, the connection will occur within 24 hours.</p>
-                    <p class="en_block hidden">After payment, be sure to send a receipt for transfer to<a href="mailto:info@chikurov.com">info@chikurov.com</a>.<p>
+                    <p class="en_block hidden">After payment, be sure to send a receipt for transfer to <a href="mailto:info@chikurov.com">info@chikurov.com</a>.<p>
                     <h3></h3>
                     <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
                     <b class="en_block hidden">To access the program you need to do the following:</b>

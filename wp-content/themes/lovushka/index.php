@@ -236,13 +236,13 @@
                     <p class="en_block hidden">
                         Connection to the program, when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
                     </p>
-                    <p class="ru_block">
-                      Когда доступ будет открыт на ваш почтовый ящик поступит письмо с логином и паролем.
-                    </p>
-                    <p class="en_block hidden">
-                      When access is opened, you will receive an email with a username and password.
-                    </p>
                   </div>
+                  <p class="ru_block">
+                    <b>Когда доступ будет открыт на ваш почтовый ящик поступит письмо с логином и паролем.</b>
+                  </p>
+                  <p class="en_block hidden">
+                    <b>When access is opened, you will receive an email with a username and password.</b>
+                  </p>
                 </div>
               </div>
               <div class="col-sm-1"></div>

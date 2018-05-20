@@ -142,7 +142,7 @@
                   <h3 class="en_block hidden">Extended mode</h3>
                   <p class="vitrin_content ru_block">Раширенный режим программы <b>"Антистресс Визард Ловушка"</b> включает в себя все возможности базового режима, а так же механизм для "Пересмотра личной истории". В этом режиме, можно выбрать до 2-х актуальных проблем из списка и следую подсказкам программы провести глубокую проработку личной истории. В этом режиме скоростью вращения лоушки управляет программа. На разных этапах она может меняться</p>
                   <p class="vitrin_content en_block hidden">Extended program mode <b>"Antistress Wizard Lovushka"</b> includes all the features of the basic mode, as well as a mechanism for the "Revision of personal history." In this mode, you can select up to 2 relevant problems from the list and follow the prompts of the program to conduct a deep study of your personal history. In this mode, the speed of rotation of the louver is controlled by the program. At different stages it can vary</p>
-                  <h4 class="ru_block">Стоимость расшеренной версии</h4>
+                  <h4 class="ru_block">Стоимость расширенной версии</h4>
                   <h4 class="en_block hidden">Cost of the extended mode</h4>
                   <div class="price ru_block">10000 руб./год.</div>
                   <div class="price en_block hidden">10000 rur. / year.</div>

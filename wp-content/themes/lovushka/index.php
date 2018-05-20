@@ -231,10 +231,10 @@
                         — After the transfer, please send us a copy of the payment receipt.
                     </p>
                     <p class="ru_block">
-                        Подключение к программе, при оплате этим способом, происходит в течение 24 часов.
+                        Подключение к программе "Антистресс Визард Ловушка", при оплате этим способом, происходит в течение 24 часов.
                     </p>
                     <p class="en_block hidden">
-                        Connection to the program, when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
+                        Connection to the program "Antistress Wizard Lovushka", when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
                     </p>
                   </div>
                   <p class="ru_block">

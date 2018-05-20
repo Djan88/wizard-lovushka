@@ -164,8 +164,10 @@
                   <h3 class="ru_block">Оплата из личного кабинета</h3>
                   <h3 class="en_block hidden">Payment from the personal cabinet</h3>
                   <div style="text-align: left;">
-                    <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
-                    <b class="en_block hidden">To access the program you need to do the following:</b>
+                    <p>
+                      <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
+                      <b class="en_block hidden">To access the program you need to do the following:</b>
+                    </p>
                     <?php if (!is_user_logged_in()) { ?>
                       <p class="ru_block">
                           <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
@@ -206,6 +208,10 @@
                   <h3 class="ru_block">Перевод на банковскую карту</h3>
                   <h3 class="en_block hidden">Transfer to bank card</h3>
                   <div style="text-align: left;">
+                    <p>
+                      <b class="ru_block">Вы можете оплатить доступ к программе онлайн переводом на банковскую карту. Для этого необходимо:</b>
+                      <b class="en_block hidden">You can pay for access to the program online by transfer to a bank card. To do this you need:</b>
+                    </p>
                     <p class="ru_block">
                         Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
                     </p>

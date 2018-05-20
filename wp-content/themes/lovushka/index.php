@@ -163,64 +163,74 @@
                 <div class="vitrin">
                   <h3 class="ru_block">Оплата из личного кабинета</h3>
                   <h3 class="en_block hidden">Payment from the personal cabinet</h3>
-                  <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
-                  <b class="en_block hidden">To access the program you need to do the following:</b>
-                  <?php if (!is_user_logged_in()) { ?>
+                  <div style="text-align: left;">
+                    <b class="ru_block">Чтоб получить доступ к программе из личного кабнета необходимо сделать следующее:</b>
+                    <b class="en_block hidden">To access the program you need to do the following:</b>
+                    <?php if (!is_user_logged_in()) { ?>
+                      <p class="ru_block">
+                          <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
+                      </p>
+                      <p class="en_block hidden">
+                          <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Sign in</span> to the website. If you do not have an account yet "Wizard Lovushka" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">register now</span>
+                      </p>
+                    <?php } ?>
                     <p class="ru_block">
-                        <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Войдите</span> на сайт. Если у Вас еще нет учетной записи "Визард Ловушка" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">зарегистрируйтесь</span>
+                        <span class="article_main">— </span> Войдите в <a target="_blank" href="/kabinet">личный кабинет</a> пользователя.
                     </p>
                     <p class="en_block hidden">
-                        <span class="article_main">— </span><span class="reg_login toLogin" data-toggle="modal" data-target="#login">Sign in</span> to the website. If you do not have an account yet "Wizard Lovushka" — <span class="reg_login toRegistration" data-toggle="modal" data-target="#login">register now</span>
+                        <span class="article_main">— </span> Sign in to<a target="_blank" href="/kabinet">user's personal</a> cabinet.
                     </p>
-                  <?php } ?>
-                  <p class="ru_block">
-                      <span class="article_main">— </span> Войдите в <a target="_blank" href="/kabinet">личный кабинет</a> пользователя.
-                  </p>
-                  <p class="en_block hidden">
-                      <span class="article_main">— </span> Sign in to<a target="_blank" href="/kabinet">user's personal</a> cabinet.
-                  </p>
-                  <p class="ru_block">
-                      <span class="article_main">— </span> Выберите вкладку <b>"Все доступы"</b>
-                  </p>
-                  <p class="en_block hidden">
-                      <span class="article_main">— </span> Select the tab <b>"All Accesses"</b>
-                  </p>
-                  <p class="ru_block">
-                      <span class="article_main">— </span> Выберите тип аккаунта и нажмите "Приобрести" -&gt; "Оплатить через "Робокасса" -&gt; Выберите удобный для Вас способ и произведите оплату.
-                  </p>
-                  <p class="en_block hidden">
-                      <span class="article_main">— </span> Select the account type and click "Purchase" -&gt; "Pay through "Robocassa" -&gt; Choose the method convenient for you and make payment.
-                  </p>
-                  <p class="ru_block">
-                      По завершении оплаты на Вашу почту поступит письмо с подтверждением. С этой минуты Ваш доступ к программе "Визард Ловушка" активен! Приятного пользования!
-                  </p>
-                  <p class="en_block hidden">
-                      Upon completion of payment, a confirmation letter will be sent to your mail. From now on, your access to the "Wizard Lovushka" program is active! Pleasant use!
-                  </p>
+                    <p class="ru_block">
+                        <span class="article_main">— </span> Выберите вкладку <b>"Все доступы"</b>
+                    </p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span> Select the tab <b>"All Accesses"</b>
+                    </p>
+                    <p class="ru_block">
+                        <span class="article_main">— </span> Выберите тип аккаунта и нажмите "Приобрести" -&gt; "Оплатить через "Робокасса" -&gt; Выберите удобный для Вас способ и произведите оплату.
+                    </p>
+                    <p class="en_block hidden">
+                        <span class="article_main">— </span> Select the account type and click "Purchase" -&gt; "Pay through "Robocassa" -&gt; Choose the method convenient for you and make payment.
+                    </p>
+                    <p class="ru_block">
+                        По завершении оплаты на Вашу почту поступит письмо с подтверждением. С этой минуты Ваш доступ к программе "Визард Ловушка" активен! Приятного пользования!
+                    </p>
+                    <p class="en_block hidden">
+                        Upon completion of payment, a confirmation letter will be sent to your mail. From now on, your access to the "Wizard Lovushka" program is active! Pleasant use!
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-5">
                 <div class="vitrin">
-                  <h3 class="ru_block">Оплата онлайн переводом с банковской карты</h3>
-                  <h3 class="en_block hidden">Payment online by transfer from a bank card</h3>
-                  <p class="ru_block">
-                      Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
-                  </p>
-                  <p class="en_block hidden">
-                      For translation click on the <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
-                  </p>
-                  <p class="ru_block">
-                      В комментарии надо указать: <b>"Учебный курс Ловушка"</b>. После оплаты обязательно пришлите нам квитанцию об оплате.
-                  </p>
-                  <p class="en_block hidden">
-                      In the comment, you must specify the following text: <b>"Учебный курс Ловушка"</b>. After payment, please send us a receipt for payment.
-                  </p>
-                  <p class="ru_block">
-                      Подключение к программе, при оплате этим способом, происходит в течение 24 часов. На ваш почтовый ящик будет отправлено письмо с логином и паролем.
-                  </p>
-                  <p class="en_block hidden">
-                      Connection to the program, when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
-                  </p>
+                  <h3 class="ru_block">Перевод на банковскую карту</h3>
+                  <h3 class="en_block hidden">Transfer to bank card</h3>
+                  <div style="text-align: left;">
+                    <p class="ru_block">
+                        Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
+                    </p>
+                    <p class="en_block hidden">
+                        For translation click on the <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
+                    </p>
+                    <p class="ru_block">
+                        В комментарии надо указать: <b>"Учебный курс Ловушка"</b>. После оплаты обязательно пришлите нам квитанцию об оплате.
+                    </p>
+                    <p class="en_block hidden">
+                        In the comment, you must specify the following text: <b>"Учебный курс Ловушка"</b>. After payment, please send us a receipt for payment.
+                    </p>
+                    <p class="ru_block">
+                        Подключение к программе, при оплате этим способом, происходит в течение 24 часов.
+                    </p>
+                    <p class="en_block hidden">
+                        Connection to the program, when paying this way, occurs within 24 hours. An email with your username and password will be sent to your mailbox.
+                    </p>
+                    <p class="ru_block">
+                      Когда доступ будет открыт на ваш почтовый ящик поступит письмо с логином и паролем.
+                    </p>
+                    <p class="en_block hidden">
+                      When access is opened, you will receive an email with a username and password.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-1"></div>

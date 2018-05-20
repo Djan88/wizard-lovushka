@@ -213,16 +213,22 @@
                       <b class="en_block hidden">You can pay for access to the program online by transfer to a bank card. To do this you need:</b>
                     </p>
                     <p class="ru_block">
-                        Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
+                        — Для перевода перейдите по <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">сслыке</a>
                     </p>
                     <p class="en_block hidden">
-                        For translation click on the <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
+                        — For translation click on the <a target="_blank" href="https://tochka.com/my/b95e3c7070b54fb1aa43d073b6fd86dc">link</a>
                     </p>
                     <p class="ru_block">
-                        В комментарии надо указать: <b>"Учебный курс Ловушка"</b>. После оплаты обязательно пришлите нам квитанцию об оплате.
+                        — В комментарии надо указать: <b>"Учебный курс Ловушка"</b>.
                     </p>
                     <p class="en_block hidden">
-                        In the comment, you must specify the following text: <b>"Учебный курс Ловушка"</b>. After payment, please send us a receipt for payment.
+                        — In the comment, you must specify the following text: <b>"Учебный курс Ловушка"</b>.
+                    </p>
+                    <p class="ru_block">
+                        — После перевода обязательно пришлите нам копию квитанции об оплате.
+                    </p>
+                    <p class="en_block hidden">
+                        — After the transfer, please send us a copy of the payment receipt.
                     </p>
                     <p class="ru_block">
                         Подключение к программе, при оплате этим способом, происходит в течение 24 часов.

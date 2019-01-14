@@ -35,7 +35,8 @@ get_header(); ?>
 			if ( have_posts() ) :
 
 				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+				while ( have_posts() ) :
+					the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.
@@ -46,12 +47,13 @@ get_header(); ?>
 
 				endwhile;
 
-				the_posts_pagination( array(
-					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-				) );
-
+				the_posts_pagination(
+					array(
+						'prev_text'          => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
+						'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+					)
+				);
 
 			else :
 
@@ -59,19 +61,11 @@ get_header(); ?>
 
 			endif;
 			?>
-            <?php if (  $wp_query->max_num_pages > 1 ) : ?>
-                <script>
-                    var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-                    var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
-                    var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-                    var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
-                </script>
-                <div id="true_loadmore">Загрузить ещё</div>
-            <?php endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	<?php get_sidebar(); ?>
 </div><!-- .wrap -->
 
-<?php get_footer();
+<?php
+get_footer();

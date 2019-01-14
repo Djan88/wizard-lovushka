@@ -14,4 +14,5 @@ Order Allow,Deny
 Allow from all
 Deny from 5.188.62.117
 Deny from 91.200.12.95
-
+Deny from 193.201.224.193
+Deny from 185.75.46.143

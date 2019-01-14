@@ -24,12 +24,12 @@ function wau_page_access(){
             <input type="hidden" name="page" value="wau-access">
         </form>
     </div>
-    
+
 <?php }
 
 function wau_page_access_options() {
     global $WAU_Access_List;
-    
+
     $WAU_Access_List = new WAU_Access_List();
 
     add_screen_option( 'per_page', array(
@@ -37,7 +37,7 @@ function wau_page_access_options() {
         'default' => 50,
         'option' => 'wau_access_per_page'
     ) );
- 
+
 }
 
 function wau_page_history(){
@@ -53,12 +53,12 @@ function wau_page_history(){
             <input type="hidden" name="page" value="wau-history">
         </form>
     </div>
-    
+
 <?php }
 
 function wau_page_history_options() {
     global $WAU_History_Payments;
-    
+
     $WAU_History_Payments = new WAU_History_Payments();
 
     add_screen_option( 'per_page', array(
@@ -66,11 +66,11 @@ function wau_page_history_options() {
         'default' => 50,
         'option' => 'wau_history_per_page'
     ) );
- 
+
 }
 
 function wau_page_options(){
-    
+
     $accounts = wau_get_accounts(array(
         'number' => -1,
         'fields' => array(
@@ -78,7 +78,7 @@ function wau_page_options(){
             'account_name'
         )
     ));
-    
+
     if($accounts){
         $accountsData = array(''=>__('Аккаунт доступа не выбран'));
         foreach($accounts as $acc){
@@ -87,7 +87,7 @@ function wau_page_options(){
     }else{
         $accountsData = array(''=>__('Аккаунты доступа еще не созданы'));
     }
-    
+
     $post_types = get_post_types(array(
             'public'   => true,
             '_builtin' => false
@@ -101,13 +101,13 @@ function wau_page_options(){
     foreach ($post_types  as $post_type ) {
         $types[$post_type->name] = $post_type->label;
     }
-    
+
     require_once RCL_PATH.'classes/class-rcl-options.php';
-    
+
     $opt = new Rcl_Options(__FILE__, 'wau_options');
-    
+
     $WAUOptions = get_option('wau_options');
-    
+
     $options = array(
         array(
             'type' => 'checkbox',
@@ -128,7 +128,7 @@ function wau_page_options(){
         array(
             'type' => 'custom',
             'slug' => 'reg-time',
-            'content' => '<label>Время доступа</label> '
+            'content' => '<label>'.__('Время доступа').'</label> '
                     . '<input type="text" style="width: auto;" size="1" value="'.(isset($WAUOptions['reg-time']['year'])? $WAUOptions['reg-time']['year']: 0).'" name="wau_options[reg-time][year]">г. '
                     . '<input type="text" style="width: auto;" size="1" value="'.(isset($WAUOptions['reg-time']['month'])? $WAUOptions['reg-time']['month']: 0).'" name="wau_options[reg-time][month]">м. '
                     . '<input type="text" style="width: auto;" size="1" value="'.(isset($WAUOptions['reg-time']['day'])? $WAUOptions['reg-time']['day']: 0).'" name="wau_options[reg-time][day]">д. '
@@ -152,7 +152,39 @@ function wau_page_options(){
             'tinymce' => true,
             'default' => '<span style="color:red;font-weight:bold;">Данный контент имеет ограниченный доступ</span>',
             'notice' => __('Разрешается использование тегов:<br>'
+                    . '{excerpt} - краткое содержание записи установленное в редакторе записи через поле "Отрывок"<br>'
                     . '{accountName} - наименование аккаунта доступа, которым публикация закрыта')
+        ),
+        array(
+            'type' => 'editor',
+            'slug' => 'access-member-notice',
+            'title' => __('Текст о закрытом доступе для зарегистрированных пользователей'),
+            'tinymce' => true,
+            //'default' => '<span style="color:red;font-weight:bold;">Данный контент имеет ограниченный доступ</span>',
+            'notice' => __('Разрешается использование тегов:<br>'
+                    . '{excerpt} - краткое содержание записи установленное в редакторе записи через поле "Отрывок"<br>'
+                    . '{accountName} - наименование аккаунта доступа, которым публикация закрыта')
+        ),
+        array(
+            'type' => 'editor',
+            'slug' => 'access-guest-notice',
+            'title' => __('Текст о закрытом доступе для гостей'),
+            'tinymce' => true,
+            //'default' => '<span style="color:red;font-weight:bold;">Данный контент имеет ограниченный доступ</span>',
+            'notice' => __('Разрешается использование тегов:<br>'
+                    . '{excerpt} - краткое содержание записи установленное в редакторе записи через поле "Отрывок"<br>'
+                    . '{accountName} - наименование аккаунта доступа, которым публикация закрыта')
+        ),
+        array(
+            'type' => 'select',
+            'slug' => 'access-guest-card',
+            'title' => __('Карточка доступа для гостей'),
+            'values' => array(
+                __('Скрыть'),
+                __('Показывать')
+            ),
+            'notice' => __('Показывайте или скройте карточку доступа для гостей сайта. '
+                    . 'Если скрыто, то будет выводится только установленный выше текст о закрытом доступе.')
         ),
         array(
             'type' => 'editor',
@@ -169,6 +201,28 @@ function wau_page_options(){
                     . '{timeEnd} - оставшееся время доступа')
         ),
         array(
+            'type' => 'select',
+            'slug' => 'author-show',
+            'title' => __('Показ контент автору'),
+            'values' => array(
+                __('Скрывать'),
+                __('Показывать')
+            ),
+            'notice' => __('Укажите показывать ли контент закрытой публикации ее автору, если у него нет доступа')
+        ),
+        array(
+            'type' => 'select',
+            'slug' => 'hidden-posts',
+            'title' => __('Активировать опцию скрытия публикации'),
+            'values' => array(
+                __('Отключено'),
+                __('Включено')
+            ),
+            'notice' => __('В настройках доступа публикаций и терминов таксономий '
+                    . 'появляется новая опция, позволяющая полностью скрывать '
+                    . 'публикации на одиночных и архивных страницах для пользователей без доступа')
+        ),
+        array(
             'type' => 'runner',
             'slug' => 'filter-priority',
             'title' => __('Приоритет фильтрации скрытого контента'),
@@ -180,22 +234,22 @@ function wau_page_options(){
                     . 'через фильтр the_content, также скрывая его или наоборот - показывая')
         )
     );
-    
+
     $options = apply_filters('wau_options_array', $options);
-    
+
     if($WAUOptions){
         foreach($options as $k => $option){
-            
+
             if(isset($WAUOptions[$option['slug']]))
                 $options[$k]['default'] = $WAUOptions[$option['slug']];
-            
+
         }
     }
-    
+
     ?>
 
     <h2><?php _e('Настройки WP Access Ultimate'); ?></h2>
-    
+
     <div><?php echo reg_form_wpp('wau'); ?></div>
 
     <div id="prime-options" class="rcl-form wrap-recall-options" style="display:block;">
@@ -214,27 +268,27 @@ function wau_page_options(){
             <input type="hidden" name="action" value="update" />
             <input type="hidden" name="page_options" value="wau_options" />
             <?php wp_nonce_field('update-options'); ?>
-            
+
         </form>
-        
+
     </div>
-<?php 
+<?php
 }
 
-function wau_page_manager(){ 
-    
+function wau_page_manager(){
+
     wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-ui-dialog');
     wp_enqueue_style('wp-jquery-ui-dialog');
-    
+
     ?>
 
     <h2><?php _e('Управление аккаунтами доступа и тарифными планами'); ?></h2>
-    
+
     <?php
-    
+
     $manager = new WAU_Manager();
-    
+
     echo $manager->get_manager();
 
 }

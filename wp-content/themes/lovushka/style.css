@@ -479,6 +479,16 @@ button.btn.btn_login
     border: 2px solid #000;
     z-index: 999;
 }
+.container.inside
+{
+    background: #fff;
+    padding: 20px;
+    font-size: 20px;
+}
+.container.inside p
+{
+    text-align: left;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

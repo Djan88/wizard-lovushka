@@ -467,7 +467,7 @@
           <div class="pull-left" style="padding-top: 7px;">
             <a href="/">WizardLovushka</a> | v 2.0 | &copy; 
             <a class="ru_block" href="http://www.chikurov.com" target="_blank">Юрий Чикуров</a>
-            <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2018<?php if(is_user_logged_in()){ ?> | <a class="ru_block" href="/kabinet">Личный кабинет</a><a class="hidden en_block" href="/kabinet">Personal Area</a><?php } ?>
+            <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2019<?php if(is_user_logged_in()){ ?> | <a class="ru_block" href="/kabinet">Личный кабинет</a> | <a class="ru_block" href="/oferta">Оферта</a><a class="hidden en_block" href="/kabinet">Personal Area</a><?php } ?>
           </div>
           <?php if(is_user_logged_in()){ ?>
           <div class="pull-right">

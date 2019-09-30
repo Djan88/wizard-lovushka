@@ -874,6 +874,7 @@ div.rcl-custom-fields .rcl-field-value .fa-upload {
     padding: 5px 8px 4px 6px;
     position: relative;
     vertical-align: middle;
+	width: auto;
 }
 .rcl-field-input.type-agree-input .block-label {
     background-color: transparent;

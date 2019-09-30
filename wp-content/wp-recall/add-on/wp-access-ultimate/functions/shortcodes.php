@@ -1,116 +1,116 @@
 <?php
 
-add_shortcode('wau-close','wau_get_close_content_shortcode');
-function wau_get_close_content_shortcode($atts, $content = null){
-    global $WAU_User;
+add_shortcode( 'wau-close', 'wau_get_close_content_shortcode' );
+function wau_get_close_content_shortcode( $atts, $content = null ) {
+	global $WAU_User;
 
-    $content = do_shortcode( shortcode_unautop( $content ) );
-    if ( '</p>' == substr( $content, 0, 4 )
-    and '<p>' == substr( $content, strlen( $content ) - 3 ) )
-    $content = substr( $content, 4, strlen( $content ) - 7 );
+	$content = do_shortcode( shortcode_unautop( $content ) );
+	if ( '</p>' == substr( $content, 0, 4 )
+		and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+		$content = substr( $content, 4, strlen( $content ) - 7 );
 
-    extract(shortcode_atts(array(
-        'account_id' => false,
-        'important' => 0,
-        'price_table' => 1,
-        'account_name' => 1,
-        'description' => 1,
-        'access_notice' => false
-    ),
-    $atts));
+	extract( shortcode_atts( array(
+		'account_id'	 => false,
+		'important'		 => 0,
+		'price_table'	 => 1,
+		'account_name'	 => 1,
+		'description'	 => 1,
+		'access_notice'	 => false
+			), $atts ) );
 
-    $args = array(
-        'price_table' => $price_table,
-        'account_name' => $account_name,
-        'description' => $description
-    );
+	$args = array(
+		'price_table'	 => $price_table,
+		'account_name'	 => $account_name,
+		'description'	 => $description
+	);
 
-    $account_ids = array_map('trim',explode(',',$account_id));
+	$account_ids = array_map( 'trim', explode( ',', $account_id ) );
 
-    if($WAU_User->is_branch_access($account_ids, $important)){
-        return $content;
-    }
+	if ( $WAU_User->is_branch_access( $account_ids, $important ) ) {
+		return $content;
+	}
 
-    $content = '';
+	$content = '';
 
-    if($access_notice){
-        $content = wau_get_option('access-text-single');
-    }
+	if ( $access_notice ) {
+		$content = wau_get_option( 'access-text-single' );
+	}
 
-    if($important){
-        foreach($account_ids as $account_id){
-            if($WAU_User->is_branch_access($account_id)) continue;
-            $content .= wau_get_account_box($account_id, $args);
-        }
-    }else{
-        $content .= wau_get_accounts_box($account_ids, $args);
-    }
+	if ( $important ) {
+		foreach ( $account_ids as $account_id ) {
+			if ( $WAU_User->is_branch_access( $account_id ) )
+				continue;
+			$content .= wau_get_account_box( $account_id, $args );
+		}
+	}else {
+		$content .= wau_get_accounts_box( $account_ids, $args );
+	}
 
-    return $content;
-
+	return $content;
 }
 
-add_shortcode('wau-close-content','wau_get_close_notice_content_shortcode');
-function wau_get_close_notice_content_shortcode($atts, $content = null){
-    global $WAU_User;
+add_shortcode( 'wau-close-content', 'wau_get_close_notice_content_shortcode' );
+function wau_get_close_notice_content_shortcode( $atts, $content = null ) {
+	global $WAU_User;
 
-    $content = do_shortcode( shortcode_unautop( $content ) );
-    if ( '</p>' == substr( $content, 0, 4 )
-    and '<p>' == substr( $content, strlen( $content ) - 3 ) )
-    $content = substr( $content, 4, strlen( $content ) - 7 );
+	$content = do_shortcode( shortcode_unautop( $content ) );
+	if ( '</p>' == substr( $content, 0, 4 )
+		and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+		$content = substr( $content, 4, strlen( $content ) - 7 );
 
-    extract(shortcode_atts(array(
-        'account_id' => false,
-        'important' => 0
-    ),
-    $atts));
+	extract( shortcode_atts( array(
+		'account_id' => false,
+		'important'	 => 0
+			), $atts ) );
 
-    $account_ids = array_map('trim',explode(',',$account_id));
+	$account_ids = array_map( 'trim', explode( ',', $account_id ) );
 
-    if($WAU_User->is_branch_access($account_ids, $important)){
-        return false;
-    }
+	if ( $WAU_User->is_branch_access( $account_ids, $important ) ) {
+		return false;
+	}
 
-    return $content;
-
+	return $content;
 }
 
-add_shortcode('wau-accounts','wau_get_accounts_shortcode');
-function wau_get_accounts_shortcode($atts){
+add_shortcode( 'wau-accounts', 'wau_get_accounts_shortcode' );
+function wau_get_accounts_shortcode( $atts ) {
+	global $user_ID;
 
-    extract(shortcode_atts(array(
-        'account_id' => false,
-        'account_name' => 1,
-        'description' => 1
-    ),
-    $atts));
+	extract( shortcode_atts( array(
+		'account_id'	 => false,
+		'account_name'	 => 1,
+		'description'	 => 1,
+		'hide_guest'	 => false
+			), $atts ) );
 
-    if(!$account_id){
+	if ( $hide_guest && ! $user_ID ) {
+		return false;
+	}
 
-        $WAUAccounts = new WAU_Accounts();
+	if ( ! $account_id ) {
 
-        $account_ids = $WAUAccounts->get_col(array(
-            'number' => -1,
-            'fields' => array(
-                'account_id'
-            )
-        ));
+		$WAUAccounts = new WAU_Accounts();
 
-        if(!$account_ids) return false;
+		$account_ids = $WAUAccounts->get_col( array(
+			'number' => -1,
+			'fields' => array(
+				'account_id'
+			)
+		) );
 
-    }else{
+		if ( ! $account_ids )
+			return false;
+	}else {
 
-        $account_ids = array_map('trim',explode(',',$account_id));
+		$account_ids = array_map( 'trim', explode( ',', $account_id ) );
+	}
 
-    }
+	$args = array(
+		'account_name'	 => $account_name,
+		'description'	 => $description
+	);
 
-    $args = array(
-        'account_name' => $account_name,
-        'description' => $description
-    );
+	$content = wau_get_accounts_box( $account_ids, $args );
 
-    $content = wau_get_accounts_box($account_ids, $args);
-
-    return $content;
-
+	return $content;
 }

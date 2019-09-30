@@ -446,7 +446,7 @@
       <?php } ?>
     <?php } else { ?>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <div class="container">
+        <div class="container inside">
           <div class="row">
             <div class="col-md-12">
               <h2><?php the_title()?></h2>

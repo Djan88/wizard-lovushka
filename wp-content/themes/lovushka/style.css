@@ -468,7 +468,7 @@ button.btn.btn_login
     color: #3379b7;
     text-decoration: none;
 }
-.btn.btn-kabinet 
+.btn.btn-kabinet, .btn.btn-movie
 {
     position: absolute;
     padding-top: 7px;
@@ -478,6 +478,10 @@ button.btn.btn_login
     border-radius: 50%;
     border: 2px solid #000;
     z-index: 999;
+}
+.btn.btn-movie
+{
+    top: 20px;
 }
 .container.inside
 {
@@ -534,6 +538,11 @@ button.btn.btn_login
         left: 5px;
         top: 5px;
     }
+    .btn.btn-movie
+    {
+        left: 5px;
+        top: 25px;
+    }
 }
 @media (max-width: 400px) {
     .logo img {
@@ -549,6 +558,11 @@ button.btn.btn_login
     {
         left: 5px;
         top: 5px;
+    }
+    .btn.btn-movie
+    {
+        left: 5px;
+        top: 25px;
     }
     .modal-text
     {

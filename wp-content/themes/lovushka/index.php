@@ -413,11 +413,12 @@
                   <button type="button" class="btn btn-default manual" data-toggle="modal" data-target="#manual"><i class="fa fa-file-text" aria-hidden="true"></i> Правила</button>
                 <?php if(is_user_logged_in()){ ?>
                   <?php if(current_user_can('administrator') || current_user_can('author')){ ?>
-                    <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set"><i class="fa fa-sliders" aria-hidden="true"></i> Продвинутый режим</button>
+                    <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set"><i class="fa fa-sliders" aria-hidden="true"></i> Пересмотр</button>
                   <?php } else { ?>
-                    <button type="button" class="btn btn-default disabled set_disabled" data-toggle="popover" data-placement="top" data-original-title="Пересмотр личной истории" data-content='Продвинутый режим доступен для пользователей расширенной лицензии'><i class="fa fa-sliders" aria-hidden="true"></i> Продвинутый режим</button>
+                    <button type="button" class="btn btn-default disabled set_disabled" data-toggle="popover" data-placement="top" data-original-title="Пересмотр личной истории" data-content='Пересмотр личной истории доступен для пользователей расширенной лицензии'><i class="fa fa-sliders" aria-hidden="true"></i> Пересмотр</button>
                   <?php } ?>
                 <?php } ?>
+                  <button type="button" class="btn btn-default speed_info" data-toggle="modal" data-target="#speed_info"><i class="fa fa-file-text" aria-hidden="true"></i> Уровни работы</button>
                 </div>
               </div>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block hidden">
@@ -425,9 +426,9 @@
                   <button type="button" class="btn btn-default manual" data-toggle="modal" data-target="#manual"><i class="fa fa-file-text" aria-hidden="true"></i> Rules</button>
                 <?php if(is_user_logged_in()){ ?>
                   <?php if(current_user_can('administrator') || current_user_can('author')){ ?>
-                    <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set"><i class="fa fa-sliders" aria-hidden="true"></i> Advanced mode</button>
+                    <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set"><i class="fa fa-sliders" aria-hidden="true"></i> Revision</button>
                   <?php } else { ?>
-                    <button type="button" class="btn btn-default disabled set_disabled" data-toggle="popover" data-placement="top" data-original-title="Revision of personal history" data-content='Advanced mode is available for users of the extended license'><i class="fa fa-sliders" aria-hidden="true"></i> Advanced mode</button>
+                    <button type="button" class="btn btn-default disabled set_disabled" data-toggle="popover" data-placement="top" data-original-title="Revision of personal history" data-content='Revision of personal history is available for users of the extended license'><i class="fa fa-sliders" aria-hidden="true"></i> Revision</button>
                   <?php } ?>
                 <?php } ?>
                 </div>
@@ -467,7 +468,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-left" style="padding-top: 7px;">
-            <a href="/">WizardLovushka</a> | v 2.0 | &copy; 
+            <a href="/">WizardLovushka</a> | v 2.1 | &copy; 
             <a class="ru_block" href="http://www.chikurov.com" target="_blank">Юрий Чикуров</a>
             <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2019<?php if(is_user_logged_in()){ ?> | <a class="ru_block" href="/kabinet">Личный кабинет</a><a class="hidden en_block" href="/kabinet">Personal Area</a><?php } ?> | <a class="ru_block" href="/oferta">Оферта</a>
           </div>
@@ -600,6 +601,27 @@
               <button class="btn btn-primary start_prot">Enable LOVUSHKA</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="speed_info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Глобальная работа через пуповину V4</span><span class="hidden en_block">Global V4 umbilical cord work</span></h4>
+        </div>
+        <div class="modal-text ru_block">
+          <p>
+            Это очень мощная техника. Она позволяет "прочистить" все телесные и внетелесные уровни, освободим их от негативного флюида. 
+          </p>
+
+        </div>
+        <div class="modal-text hidden en_block">
+          <p>
+            This is a very powerful technique. It allows you to "clear" all bodily and out-of-body levels, we will free them from the negative fluid.
+          </p>
         </div>
       </div>
     </div>

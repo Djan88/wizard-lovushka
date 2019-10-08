@@ -411,6 +411,7 @@
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                 <div class="btn-group speed_control">
                   <button type="button" class="btn btn-default manual" data-toggle="modal" data-target="#manual">Правила</button>
+                  <button type="button" class="btn btn-default speed_info" data-toggle="modal" data-target="#speed_info">Уровни работы</button>
                 <?php if(is_user_logged_in()){ ?>
                   <?php if(current_user_can('administrator') || current_user_can('author')){ ?>
                     <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set">Пересмотр</button>
@@ -418,12 +419,12 @@
                     <button type="button" class="btn btn-default disabled set_disabled" data-toggle="popover" data-placement="top" data-original-title="Пересмотр личной истории" data-content='Пересмотр личной истории доступен для пользователей расширенной лицензии'>Пересмотр</button>
                   <?php } ?>
                 <?php } ?>
-                  <button type="button" class="btn btn-default speed_info" data-toggle="modal" data-target="#speed_info">Уровни работы</button>
                 </div>
               </div>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block hidden">
                 <div class="btn-group speed_control">
                   <button type="button" class="btn btn-default manual" data-toggle="modal" data-target="#manual"><i class="fa fa-file-text" aria-hidden="true"></i> Rules</button>
+                  <button type="button" class="btn btn-default speed_info" data-toggle="modal" data-target="#speed_info">Levels</button>
                 <?php if(is_user_logged_in()){ ?>
                   <?php if(current_user_can('administrator') || current_user_can('author')){ ?>
                     <button type="button" class="btn btn-default set" data-toggle="modal" data-target="#set"><i class="fa fa-sliders" aria-hidden="true"></i> Revision</button>
@@ -615,6 +616,22 @@
         <div class="modal-text ru_block">
           <p>
             Это очень мощная техника. Она позволяет "прочистить" все телесные и внетелесные уровни, освободим их от негативного флюида. 
+          </p>
+          <p>
+            Предложенный протокол может быть самодостаточной техникой терапии, а может дополнять другие методы работы как с телом, так и энергетические практики.
+          </p>
+          <p>
+            <h5>Скорости "WizardLovushka" и уровни работы:</h5>
+            <div><b>2</b> — нижние зоны, пуповина локально;</div>
+            <div><b>4</b> — живот, большая часть 4-х и 3-х зон;</div>
+            <div><b>6</b> — третьи зоны;</div>
+            <div><b>8</b> — вторые зоны, включая шею;</div>
+            <div><b>10</b> — голова, основание черепа;</div>
+            <div><b>12</b> — головной мозг;</div>
+            <div><b>14</b> — нижний уровень R-зоны (слева над головой), сновидения, НУМы и исполнительные эгрегоры низких частот;</div>
+            <div><b>15-22</b> — средний уровень R-зоны, типичные сновидения и социальные эгрегоры средних частот;</div>
+            <div><b>23-34</b> — верхние уровни   R-зоны, сновидения и причинные эгрегоры высоких частот;</div>
+            <div><b>26<</b> — нижний уровень кармического К-поля (справа над головой)</div>
           </p>
 
         </div>

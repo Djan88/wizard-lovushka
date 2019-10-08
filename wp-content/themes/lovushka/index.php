@@ -631,13 +631,29 @@
             <div><b>14</b> — нижний уровень R-зоны (слева над головой), сновидения, НУМы и исполнительные эгрегоры низких частот;</div>
             <div><b>15-22</b> — средний уровень R-зоны, типичные сновидения и социальные эгрегоры средних частот;</div>
             <div><b>23-34</b> — верхние уровни   R-зоны, сновидения и причинные эгрегоры высоких частот;</div>
-            <div><b>26<</b> — нижний уровень кармического К-поля (справа над головой)</div>
+            <div><b>36 <</b> — нижний уровень кармического К-поля (справа над головой)</div>
           </p>
 
         </div>
         <div class="modal-text hidden en_block">
           <p>
             This is a very powerful technique. It allows you to "clear" all bodily and out-of-body levels, we will free them from the negative fluid.
+          </p>
+          <p>
+            The proposed protocol can be a self-sufficient therapy technique, and can complement other methods of working with both the body and energy practices.
+          </p>
+          <p>
+            <h5>Speeds of "WizardLovushka" and working levels:</h5>
+            <div><b>2</b> — lower zones, umbilical cord locally;</div>
+            <div><b>4</b> — stomach, most of the 4-th and 3-th zones;</div>
+            <div><b>6</b> — third zones;</div>
+            <div><b>8</b> — second zones, including the neck;</div>
+            <div><b>10</b> — head, base of the skull;</div>
+            <div><b>12</b> — brain;</div>
+            <div><b>14</b> — the lower level of the R-zone (left above the head), dreams, low-frequency executive egregors;</div>
+            <div><b>15-22</b> — the average level of the R-zone, typical dreams and social aggregators of medium frequencies;</div>
+            <div><b>23-34</b> — upper levels of the R-zone, dreams and causal aggregators of high frequencies;</div>
+            <div><b>36 <</b> — lower level of karmic K-field (right above the head)</div>
           </p>
         </div>
       </div>

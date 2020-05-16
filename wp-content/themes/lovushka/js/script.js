@@ -268,6 +268,7 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
         jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
         count_animation += 0.5;
         cur_animation_val -= rotat_per_sec;
+        jQuery('.lovushka_speed').text(rotat_per_sec);
       } else {
           clearInterval(phaseOne);
           jQuery('.protocol').css('transform', 'rotate(0deg)');
@@ -300,6 +301,7 @@ jQuery('.instruction_block').on('click', function(event) {
     jQuery('.close_instr').removeClass('hidden');
     jQuery('.next_instr').addClass('hidden');
   }
+  jQuery('.lovushka_speed').text(rotat_per_sec);
 });
 //Закрытие окна инструкций
   jQuery('.close_instr').on('click', function(event) {

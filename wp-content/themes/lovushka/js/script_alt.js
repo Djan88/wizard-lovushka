@@ -263,15 +263,16 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       paused = false;
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.speed_control').removeClass('hidden');
-      phaseOne = setInterval(function(){
-        if (count_animation <= 1200){                                                                         //120
-          jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
-          cur_animation_val -= rotat_per_sec;
-        } else {
-            clearInterval(phaseOne);
-        } 
-      }, 500);
+      gsap_val = -(360*rotat_per_sec);
+            
+      console.log('1'+gsap_rotation);
+      if (gsap_rotation) {
+        gsap_rotation.kill();
+      }
+      console.log('2'+gsap_rotation);
+      gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
+      gsap_rotation.resume();
+      console.log('faster '+ rotat_per_sec);
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });

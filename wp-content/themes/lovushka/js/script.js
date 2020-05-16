@@ -208,15 +208,15 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.speed_control').removeClass('hidden');
       phaseOne = setInterval(function(){
-        if (count_animation <= 1200){                                                                         //120
+        if (count_animation <= 600){                                                                         //120
           jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
+          count_animation += 1;
           cur_animation_val -= rotat_per_sec;
         } else {
             clearInterval(phaseOne);
             jQuery('.protocol').css('transform', 'rotate(0deg)');
         } 
-      }, 500);
+      }, 1000);
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });
@@ -236,14 +236,14 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.speed_control').removeClass('hidden');
       phaseOne = setInterval(function(){
-        if (count_animation <= 1200){                                                                         //120
+        if (count_animation <= 600){                                                                         //120
           jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
+          count_animation += 1;
           cur_animation_val -= rotat_per_sec;
         } else {
             clearInterval(phaseOne);
         } 
-      }, 500);
+      }, 1000);
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });
@@ -264,15 +264,15 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
     jQuery('.runed').removeClass('hidden');
     rotat_per_sec = speed_one;
     phaseOne = setInterval(function(){
-      if (count_animation <= 1200){                                                                         //120
+      if (count_animation <= 600){                                                                         //120
         jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-        count_animation += 0.5;
+        count_animation += 1;
         cur_animation_val -= rotat_per_sec;
       } else {
           clearInterval(phaseOne);
           jQuery('.protocol').css('transform', 'rotate(0deg)');
       } 
-    }, 500);
+    }, 1000);
   });
 // Переключение инструкций
 jQuery('.instruction_block').on('click', function(event) {
@@ -320,15 +320,15 @@ jQuery('.instruction_block').on('click', function(event) {
       jQuery('.questions').addClass('hidden');
       jQuery('.runed').removeClass('hidden');
       phaseOne = setInterval(function(){
-        if (count_animation <= 1200){                                                                         //120
+        if (count_animation <= 600){                                                                         //120
           jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
+          count_animation += 1;
           cur_animation_val -= rotat_per_sec;
         } else {
             clearInterval(phaseOne);
             jQuery('.protocol').css('transform', 'rotate(0deg)');
         } 
-      }, 500);
+      }, 1000);
       jQuery('.lovushka_speed').text(rotat_per_sec);
     }
   });
@@ -392,9 +392,9 @@ jQuery('.instruction_block').on('click', function(event) {
     if (mode == true) {
       console.log(mode);
       phaseOne = setInterval(function(){
-        if (count_animation <= 240){                      //4
+        if (count_animation <= 120){                      //4
           jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
+          count_animation += 1;
           cur_animation_val -= mode_speed;
           jQuery('.lovushka_speed').text(mode_speed);
           console.log(count_animation);
@@ -411,7 +411,7 @@ jQuery('.instruction_block').on('click', function(event) {
             jQuery('.speed_faster').removeClass('hidden');
             jQuery('.speed_closed').addClass('hidden');
         } 
-      }, 500);
+      }, 1000);
     }
   });
 

@@ -489,7 +489,11 @@
   ============================================================= -->
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-2.1.1.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
-  <script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
+  <?php if(!current_user_can('administrator')){ ?>
+    <script src="<?php bloginfo('template_url'); ?>/js/script_alt.js"></script>
+  <?php } else { ?>
+    <script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
+  <?php } ?>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript" >
       (function (d, w, c) {

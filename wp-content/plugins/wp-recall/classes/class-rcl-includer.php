@@ -198,6 +198,11 @@ class Rcl_Includer {
 			unset( $new_array[$this->place]['footer'] );
 		}
 
+		if ( isset( $new_array[$this->place]['parents'] ) ) {
+			$new_array['parents'] = $new_array[$this->place]['parents'];
+			unset( $new_array[$this->place]['parents'] );
+		}
+
 		$array = $new_array;
 
 		return $array;

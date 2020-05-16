@@ -93,7 +93,7 @@ class Rcl_Payment {
 		if ( ! $this->page_successfully && isset( $rmag_options['page_successfully_pay'] ) )
 			$this->page_successfully = $rmag_options['page_successfully_pay'];
 
-		$this->pay_summ = round( str_replace( ',', '.', $this->pay_summ ), 2 );
+		$this->pay_summ = rcl_commercial_round( str_replace( ',', '.', $this->pay_summ ) );
 
 		$this->baggage_data['pay_type']	 = $this->pay_type;
 		$this->baggage_data['user_id']	 = $this->user_id;

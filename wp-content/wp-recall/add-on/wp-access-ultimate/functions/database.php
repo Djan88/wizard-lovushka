@@ -9,7 +9,7 @@ function wau_get_account( $account_id ) {
 	$query = new WAU_Accounts();
 	return $query->get_row( array(
 			'account_id' => $account_id
-	) );
+		) );
 }
 
 function wau_get_account_field( $account_id, $fieldName ) {
@@ -24,7 +24,7 @@ function wau_get_account_field( $account_id, $fieldName ) {
 	$value = $query->get_var( array(
 		'account_id' => $account_id,
 		'fields'	 => is_array( $fieldName ) ? $fieldName : array( $fieldName )
-	) );
+		) );
 
 	wp_cache_add( $cachekey, $value );
 
@@ -101,7 +101,7 @@ function wau_delete_account_tariffs( $account_id ) {
 		'fields'	 => array(
 			'tariff_id'
 		)
-	) );
+		) );
 
 	if ( ! $tariffs )
 		return false;
@@ -120,7 +120,7 @@ function wau_get_tariff( $tariff_id ) {
 	$query = new WAU_Tariffs();
 	return $query->get_row( array(
 			'tariff_id' => $tariff_id
-	) );
+		) );
 }
 
 function wau_get_tariff_field( $tariff_id, $fieldName ) {
@@ -128,7 +128,7 @@ function wau_get_tariff_field( $tariff_id, $fieldName ) {
 	return $query->get_var( array(
 			'tariff_id'	 => $tariff_id,
 			'fields'	 => is_array( $fieldName ) ? $fieldName : array( $fieldName )
-	) );
+		) );
 }
 
 function wau_add_tariff( $args ) {
@@ -201,7 +201,7 @@ function wau_get_access( $access_id ) {
 	$query = new WAU_Access();
 	return $query->get_row( array(
 			'access_id' => $access_id
-	) );
+		) );
 }
 
 function wau_get_user_access_by_account( $user_id, $access_id ) {
@@ -209,7 +209,7 @@ function wau_get_user_access_by_account( $user_id, $access_id ) {
 	return $query->get_row( array(
 			'user_id'	 => $user_id,
 			'account_id' => $access_id
-	) );
+		) );
 }
 
 function wau_get_access_field( $access_id, $fieldName ) {
@@ -217,7 +217,7 @@ function wau_get_access_field( $access_id, $fieldName ) {
 	return $query->get_var( array(
 			'access_id'	 => $access_id,
 			'fields'	 => is_array( $fieldName ) ? $fieldName : array( $fieldName )
-	) );
+		) );
 }
 
 function wau_add_access( $args ) {
@@ -246,7 +246,7 @@ function wau_update_access( $access_id, $update ) {
 	);
 
 	if ( $result )
-		do_action( 'wau_update_access', $access_id );
+		do_action( 'wau_update_access', $access_id, $update );
 
 	return $result;
 }
@@ -263,7 +263,7 @@ function wau_update_user_access( $user_id, $account_id, $access_time, $append = 
 
 		$result = wau_update_access( $access->access_id, array(
 			'access_time' => $access_time
-		) );
+			) );
 
 		$access_id = $access->access_id;
 	} else {
@@ -272,7 +272,7 @@ function wau_update_user_access( $user_id, $account_id, $access_time, $append = 
 			'user_id'		 => $user_id,
 			'account_id'	 => $account_id,
 			'access_time'	 => $access_time
-		) );
+			) );
 	}
 
 	do_action( 'wau_update_user_access', $access_id );
@@ -319,7 +319,7 @@ function wau_get_payment( $payment_id ) {
 	$query = new WAU_Payments();
 	return $query->get_row( array(
 			'payment_id' => $payment_id
-	) );
+		) );
 }
 
 function wau_count_payments( $args = false ) {

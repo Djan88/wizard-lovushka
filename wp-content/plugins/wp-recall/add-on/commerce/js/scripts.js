@@ -366,6 +366,8 @@ function rcl_add_to_cart( e ) {
 					path: '/'
 				} );
 
+			} else {
+				rcl_proccess_ajax_return( data );
 			}
 		}
 	} );

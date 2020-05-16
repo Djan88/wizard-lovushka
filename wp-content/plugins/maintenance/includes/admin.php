@@ -64,6 +64,8 @@ function mtnc_admin_print_custom_styles()
   wp_localize_script('mtnc', 'mtnc', array('path' => MTNC_URI,
     'weglot_install_url' => add_query_arg(array('action' => 'mtnc_install_weglot', 'rnd' => rand()), admin_url('admin.php')),
     'weglot_dialog_upsell_title' => '<img alt="Weglot" title="Weglot" src="' . MTNC_URI . 'images/weglot-logo-white.png' . '">',
+    'amelia_install_url' => add_query_arg(array('action' => 'mtnc_install_amelia', 'rnd' => rand()), admin_url('admin.php')),
+    'amelia_dialog_upsell_title' => '<img alt="Amelia Booking" title="Amelia Booking" src="' . MTNC_URI . 'images/amelia-logo-white.png' . '">',
     'mailoptin_dialog_upsell_title' => '<img alt="MailOptin" title="MailOptin" src="' . MTNC_URI . 'images/mailoptin-logo-white.png' . '">',
     'mailoptin_install_url' => add_query_arg(array('action' => 'mtnc_install_mailoptin'), admin_url('admin.php'))));
   wp_enqueue_script('mtnc');
@@ -184,4 +186,20 @@ echo '<p class="upsell-footer"><a class="button button-primary" id="install-wegl
 echo '</div>';
 echo '</div>';
 // weglot install dialog
+
+// amelia install dialog
+echo '<div id="amelia-upsell-dialog" style="display: none;" title="Amelia Booking"><span class="ui-helper-hidden-accessible"><input type="text"/></span>';
+echo '<div style="padding: 0 20px 20px 20px; font-size: 15px;">';
+echo '<ul class="mtnc-list">';
+echo '<li>Start booking events and appointements for free</li>';
+echo '<li>A convenient Calendar view on the back-end, giving a full overview on all the appointments and the statuses</li>';
+echo '<li>Flexible Appointment Management page, with an option to add appointments by your staff from the WordPress admin dashboard</li>';
+echo '<li>All key numbers are available in the Dashboard</li>';
+echo '<li>Email notifications to the customer and yourself when the appointment status changes</li>';
+echo '<li>Free and used by +10,000 sites</li>';
+echo '</ul>';
+echo '<p class="upsell-footer textcenter"><br><a class="button button-primary" id="install-amelia">Install &amp; activate Amelia Booking to enable bookings calendar</a></p>';
+echo '</div>';
+echo '</div>';
+// amelia install dialog
 }

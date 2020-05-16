@@ -81,6 +81,10 @@ $google_fonts = mtnc_add_google_fonts();
     echo '<link rel="stylesheet" href="' . WEGLOT_URL_DIST . '/css/front-css.css?v=' . WEGLOT_VERSION . '" type="text/css">';
     echo '<script src="' . WEGLOT_URL_DIST . '/front-js.js?v=' . WEGLOT_VERSION . '"></script>';
   }
+
+  if (mtnc_is_amelia_active() && $mt_options['amelia_enabled'] == 1) {
+    $mtnc->mtcn_amelia_scripts_and_styles();
+  }
 	?>
 </head>
 
@@ -99,6 +103,12 @@ $google_fonts = mtnc_add_google_fonts();
 			<div class="center">
                 <?php do_action( 'content_section' ); ?>
                 
+                <?php
+                if (mtnc_is_amelia_active() && $mt_options['amelia_enabled'] == 1) {
+                  echo do_shortcode('[ameliabooking]');
+                }
+                ?>
+
                 <?php
                 if (mtnc_is_mailoptin_active() && $mt_options['mailoptin_campaign'] > 0) {
                   echo MailOptin\Core\Admin\Customizer\OptinForm\OptinFormFactory::build($mt_options['mailoptin_campaign']);

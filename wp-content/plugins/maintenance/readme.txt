@@ -2,8 +2,8 @@
 Contributors: WebFactory, UnderConstructionPage, googlemapswidget, wpreset
 Tags: maintenance, maintenance mode, maintenance page, coming soon, coming soon page, under construction, under construction page
 Requires at least: 4.0
-Tested up to: 5.2
-Stable tag: 3.8
+Tested up to: 5.3
+Stable tag: 3.85
 Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,6 +18,8 @@ Thanks to our partners at <a href="https://wordpress.org/plugins/weglot/">Weglot
 
 WP Maintenance has full support for collecting leads and subscribers via optin boxes in content, and optin popups. We've integrated <a href="https://wordpress.org/plugins/mailoptin/">MailOptin</a> a great, free plugin into Maintenance that connects to MailChimp and numerous other autoresponder services allowing you to easily collect emails.
 
+You can easily add events and bookings calendar to your maintenance page thanks to our integration with <a href="https://wordpress.org/plugins/ameliabooking/">Amelia</a> - a free events & appointments booking calendar. It sets up in minutes and you can immediately start taking appointments. 
+
 <h3>Features</h3>
 <ul>
 <li>retina ready HTML/CSS layout</li>
@@ -31,6 +33,7 @@ WP Maintenance has full support for collecting leads and subscribers via optin b
 <li>503 error on/off</li>
 <li>Google analytics support</li>
 <li>Exclude selected pages from Maintenance mode</li>
+<li>Support for all popular caching plugins</li>
 </ul>
 
 <h3>Support</h3>
@@ -85,7 +88,13 @@ Please post the question on the <a href="http://wordpress.org/support/plugin/mai
 
 == Change log ==
 
-= 3.8 =
+= v3.85 =
+- 2019/11/28
+- bug fixes
+- added integration with Amelia Booking
+- added support for Hummingbird Cache plugin
+
+= v3.80 =
 - 2019/09/25
 - numerous bug fixes
 - added preview button

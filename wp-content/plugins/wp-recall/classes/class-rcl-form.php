@@ -5,6 +5,7 @@ class Rcl_Form extends Rcl_Custom_Fields {
 	public $action		 = '';
 	public $method		 = 'post';
 	public $submit;
+	public $icon		 = 'fa-check-circle';
 	public $nonce_name	 = '';
 	public $onclick;
 	public $fields		 = array();
@@ -37,7 +38,9 @@ class Rcl_Form extends Rcl_Custom_Fields {
 
 		if ( $this->onclick ) {
 			$content .= '<a href="#" title="' . $this->submit . '" class="recall-button" onclick=\'' . $this->onclick . '\'>';
-			$content .= '<i class="rcli fa-check-circle" aria-hidden="true"></i> ' . $this->submit;
+			if ( $this->icon )
+				$content .= '<i class="rcli ' . $this->icon . '" aria-hidden="true"></i> ';
+			$content .= '<span>' . $this->submit . '</span>';
 			$content .= '</a>';
 		} else {
 			$content .= '<input type="submit" class="recall-button" value="' . $this->submit . '"/>';

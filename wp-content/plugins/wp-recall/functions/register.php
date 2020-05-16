@@ -69,9 +69,9 @@ function rcl_confirm_user_registration() {
 			if ( ! rcl_is_user_role( $user->ID, 'need-confirm' ) )
 				return false;
 
-			$defaultRole = get_option( 'default_role' );
+			$defaultRole = get_site_option( 'default_role' );
 			if ( $defaultRole == 'need-confirm' ) {
-				update_option( 'default_role', 'author' );
+				update_site_option( 'default_role', 'author' );
 				$defaultRole = 'author';
 			}
 
@@ -85,7 +85,14 @@ function rcl_confirm_user_registration() {
 			if ( rcl_get_option( 'login_form_recall' ) == 2 ) {
 				wp_safe_redirect( wp_login_url() . '?success=checkemail' );
 			} else {
-				wp_redirect( get_bloginfo( 'wpurl' ) . '?action-rcl=login&success=checkemail' );
+
+				$place = home_url();
+				if ( rcl_get_option( 'login_form_recall', 0 ) == 1 ) {
+					$place = rcl_format_url( get_permalink( rcl_get_option( 'page_login_form_recall' ) ) );
+				}
+				wp_redirect( add_query_arg( array(
+					'action-rcl' => 'login', 'success'	 => 'checkemail'
+						), $place ) );
 			}
 			exit;
 		}
@@ -94,7 +101,9 @@ function rcl_confirm_user_registration() {
 	if ( rcl_get_option( 'login_form_recall' ) == 2 ) {
 		wp_safe_redirect( wp_login_url() . '?checkemail=confirm' );
 	} else {
-		wp_redirect( get_bloginfo( 'wpurl' ) . '?action-rcl=login&login=checkemail' );
+		wp_redirect( add_query_arg( array(
+			'action-rcl' => 'login', 'login'		 => 'checkemail'
+				), home_url() ) );
 	}
 	exit;
 }
@@ -150,7 +159,7 @@ function rcl_get_register_user( $errors ) {
 				continue;
 
 			$slug = $field['slug'];
-			if ( $field['required'] == 1 && $field['register'] == 1 ) {
+			if ( $field['required'] == 1 && isset( $field['register'] ) && $field['register'] == 1 ) {
 
 				if ( $field['type'] == 'checkbox' ) {
 
@@ -196,7 +205,7 @@ function rcl_get_register_user( $errors ) {
 		'user_pass'		 => $pass,
 		'user_login'	 => $login,
 		'user_email'	 => $email,
-		'display_name'	 => $fio
+		'display_name'	 => isset( $_POST['display_name'] ) && $_POST['display_name'] ? $_POST['display_name'] : ''
 	);
 
 	$user_id = rcl_insert_user( $userdata );
@@ -260,7 +269,9 @@ function rcl_register_mail( $userdata ) {
 			)
 		);
 
-		$url = get_bloginfo( 'wpurl' ) . '/?rcl-confirmdata=' . urlencode( $confirmstr );
+		$url = add_query_arg( array(
+			'rcl-confirmdata' => urlencode( $confirmstr )
+			), home_url() );
 
 		$textmail .= '<p>' . __( 'If it was you, then confirm your registration by clicking on the link below', 'wp-recall' ) . ':</p>
         <p><a href="' . $url . '">' . $url . '</a></p>
@@ -403,7 +414,7 @@ function rcl_get_current_url( $typeform = false, $unset = false ) {
 		$args['remember'] = 'success';
 	}
 
-	return home_url( add_query_arg( $args ) );
+	return add_query_arg( $args );
 }
 
 function rcl_referer_url( $typeform = false ) {
@@ -527,11 +538,13 @@ function rcl_custom_fields_regform( $content ) {
 		$attr	 = (isset( $field['attr'] )) ? '' . $field['attr'] : '';
 
 		$content .= '<div class="form-block-rcl ' . $class . '" ' . $id . ' ' . $attr . '>';
-		$star = ($field['required'] == 1) ? ' <span class="required">*</span> ' : '';
-		$content .= '<label>' . $CF->get_title( $field ) . $star;
-		if ( $field['type'] )
-			$content .= '<span class="colon">:</span>';
-		$content .= '</label>';
+		$star	 = ($field['required'] == 1) ? ' <span class="required">*</span> ' : '';
+		if ( $title	 = $CF->get_title( $field ) ) {
+			$content .= '<label>' . $title . $star;
+			if ( $field['type'] )
+				$content .= '<span class="colon">:</span>';
+			$content .= '</label>';
+		}
 
 		$value = (isset( $_POST[$field['slug']] )) ? $_POST[$field['slug']] : false;
 

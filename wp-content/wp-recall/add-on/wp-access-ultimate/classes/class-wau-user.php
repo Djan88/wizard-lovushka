@@ -10,12 +10,12 @@ class WAU_User extends WAU_Accounts_Walker {
 
 		$this->init_properties( $args );
 
-		if ( ! $this->user_id )
-			return;
-
 		parent::__construct( array(
 			'number' => -1
 		) );
+
+		if ( ! $this->user_id )
+			return;
 
 		if ( ! $this->access ) {
 

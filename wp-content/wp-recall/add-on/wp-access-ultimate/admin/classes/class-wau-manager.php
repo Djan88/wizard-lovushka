@@ -11,6 +11,7 @@ class WAU_Manager extends Rcl_Custom_Fields_Manager {
 	function __construct() {
 
 		rcl_sortable_scripts();
+		rcl_font_awesome_style();
 
 		$this->accounts = wau_get_accounts( array(
 			'order'	 => 'ASC',
@@ -430,7 +431,7 @@ class WAU_Manager extends Rcl_Custom_Fields_Manager {
 		if ( isset( $this->field['class'] ) )
 			$classes[] = $this->field['class'];
 
-		$title = ($this->field['type'] == 'accounts') ? $this->field['slug'] . ': ' . $this->field['title'] : $this->field['title'];
+		$title = $this->field['slug'] . ': ' . $this->field['title'];
 
 		$content = '<li id="field-' . $this->field['slug'] . '" data-parent="' . $this->field['parent_id'] . '" data-slug="' . $this->field['slug'] . '" data-type="' . $this->field['type'] . '" class="' . implode( ' ', $classes ) . '">
             <div class="field-header">

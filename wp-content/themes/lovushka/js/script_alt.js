@@ -210,7 +210,6 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.speed_control').removeClass('hidden');
 
-      gsap_rotation.kill();
       gsap_val = -(360*rotat_per_sec);
       gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
       gsap_rotation.resume();
@@ -317,7 +316,7 @@ jQuery('.instruction_block').on('click', function(event) {
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.questions').addClass('hidden');
       jQuery('.runed').removeClass('hidden');
-      gsap_rotation.kill();
+
       gsap_val = -(360*rotat_per_sec);
       gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
       gsap_rotation.resume();

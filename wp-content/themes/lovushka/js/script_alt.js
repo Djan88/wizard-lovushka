@@ -343,7 +343,7 @@ jQuery('.instruction_block').on('click', function(event) {
     jQuery('.easy_mode_item').removeClass('active');
     paused = true;
     gsap_rotation.kill();
-    jQuery('.protocol').css('transform', 'rotate(0deg)');
+    gsap.to('.protocol', {duration: 1, ease: "none", rotation: 0});
     rotat_per_sec = 2;
     cur_animation_val = 0;
     count_animation = 0;

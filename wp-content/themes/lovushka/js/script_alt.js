@@ -229,12 +229,7 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
   jQuery('.speed_faster').on('click', function(event) {
     if (paused == false) {
       rotat_per_sec += 2;
-    } else {
-      rotat_per_sec += 2;
-      paused = false;
-      jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
-      jQuery('.speed_control').removeClass('hidden');
-
+      
       gsap_val = -(360*rotat_per_sec);
       
       console.log('1'+gsap_rotation);
@@ -245,6 +240,11 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
       gsap_rotation.resume();
       console.log('faster '+ rotat_per_sec);
+    } else {
+      rotat_per_sec += 2;
+      paused = false;
+      jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
+      jQuery('.speed_control').removeClass('hidden');
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });

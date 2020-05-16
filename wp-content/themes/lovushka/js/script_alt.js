@@ -200,6 +200,31 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
     jQuery('#set').modal('hide');
     jQuery('#result').modal('show');
   });
+  // Пауза/Пуск
+  jQuery('.play').on('click', function(event) {
+    if (paused == false) {
+      jQuery('.fa-pause').removeClass('fa-pause').addClass('fa-play');
+      paused = true;
+      clearInterval(phaseOne);
+    } else {
+      paused = false;
+      jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
+      jQuery('.questions').addClass('hidden');
+      jQuery('.runed').removeClass('hidden');
+      
+      gsap_val = -(360*rotat_per_sec);
+      
+      console.log('1'+gsap_rotation);
+      if (gsap_rotation) {
+        gsap_rotation.kill();
+      }
+      console.log('2'+gsap_rotation);
+      gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
+      gsap_rotation.resume();
+      console.log('faster '+ rotat_per_sec);
+      jQuery('.lovushka_speed').text(rotat_per_sec);
+    }
+  });
  // Быстрее 
   jQuery('.speed_faster').on('click', function(event) {
     if (paused == false) {
@@ -211,9 +236,15 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       jQuery('.speed_control').removeClass('hidden');
 
       gsap_val = -(360*rotat_per_sec);
+      
+      console.log('1'+gsap_rotation);
+      if (gsap_rotation) {
+        gsap_rotation.kill();
+      }
+      console.log('2'+gsap_rotation);
       gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
       gsap_rotation.resume();
-      console.log('faster');
+      console.log('faster '+ rotat_per_sec);
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });
@@ -304,25 +335,6 @@ jQuery('.instruction_block').on('click', function(event) {
     jQuery('.close_instr').addClass('hidden');
     jQuery('.next_instr').removeClass('hidden');
     cur_instruction = 1;
-  });
-  // Пауза/Пуск
-  jQuery('.play').on('click', function(event) {
-    if (paused == false) {
-      jQuery('.fa-pause').removeClass('fa-pause').addClass('fa-play');
-      paused = true;
-      clearInterval(phaseOne);
-    } else {
-      paused = false;
-      jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
-      jQuery('.questions').addClass('hidden');
-      jQuery('.runed').removeClass('hidden');
-
-      gsap_val = -(360*rotat_per_sec);
-      gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
-      gsap_rotation.resume();
-      console.log('faster');
-      jQuery('.lovushka_speed').text(rotat_per_sec);
-    }
   });
   // Остановка протокола
   jQuery('.stop_prot, .stop').on('click', function(event) {

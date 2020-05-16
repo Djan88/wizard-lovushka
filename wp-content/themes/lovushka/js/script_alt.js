@@ -229,7 +229,7 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
   jQuery('.speed_faster').on('click', function(event) {
     if (paused == false) {
       rotat_per_sec += 2;
-      
+
       gsap_val = -(360*rotat_per_sec);
       
       console.log('1'+gsap_rotation);
@@ -342,6 +342,7 @@ jQuery('.instruction_block').on('click', function(event) {
     jQuery('.question').removeClass('active');
     jQuery('.easy_mode_item').removeClass('active');
     paused = true;
+    gsap_rotation.kill();
     jQuery('.protocol').css('transform', 'rotate(0deg)');
     rotat_per_sec = 2;
     cur_animation_val = 0;

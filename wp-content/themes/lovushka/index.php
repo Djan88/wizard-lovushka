@@ -489,6 +489,7 @@
   ============================================================= -->
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-2.1.1.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/gsap.min.js"></script>
   <?php if(!current_user_can('administrator')){ ?>
     <script src="<?php bloginfo('template_url'); ?>/js/script_alt.js"></script>
   <?php } else { ?>

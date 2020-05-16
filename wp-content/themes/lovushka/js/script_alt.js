@@ -205,7 +205,7 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
     if (paused == false) {
       jQuery('.fa-pause').removeClass('fa-pause').addClass('fa-play');
       paused = true;
-      clearInterval(phaseOne);
+      gsap_rotation.pause();
     } else {
       paused = false;
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');

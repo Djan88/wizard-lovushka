@@ -128,9 +128,9 @@ header h1.heading
     position: relative;
     margin: auto;
     border-radius: 50%;
-    -webkit-transition: transform 0.5s linear;
-       -moz-transition: transform 0.5s linear;
-            transition: transform 0.5s linear;
+    -webkit-transition: transform 1s linear;
+       -moz-transition: transform 1s linear;
+            transition: transform 1s linear;
     -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,.9);
     box-shadow: 0px 0px 20px rgba(0,0,0,.9);
 }

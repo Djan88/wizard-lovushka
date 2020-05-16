@@ -319,16 +319,13 @@ jQuery('.instruction_block').on('click', function(event) {
       jQuery('.fa-play').removeClass('fa-play').addClass('fa-pause');
       jQuery('.questions').addClass('hidden');
       jQuery('.runed').removeClass('hidden');
-      phaseOne = setInterval(function(){
-        if (count_animation <= 1200){                                                                         //120
-          jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
-          count_animation += 0.5;
-          cur_animation_val -= rotat_per_sec;
-        } else {
-            clearInterval(phaseOne);
-            jQuery('.protocol').css('transform', 'rotate(0deg)');
-        } 
-      }, 500);
+      if (gsap_rotation) {
+        gsap_rotation.kill();
+      }
+      gsap_val = -(360*rotat_per_sec);
+      gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
+      gsap_rotation.resume();
+      console.log('faster');
       jQuery('.lovushka_speed').text(rotat_per_sec);
     }
   });

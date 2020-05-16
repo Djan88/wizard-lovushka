@@ -216,6 +216,7 @@ jQuery('.clear_prot, .stop_prot, .stop').on('click', function(event) {
       gsap_val = -(360*rotat_per_sec);
       gsap_rotation = gsap.to('.protocol', {duration: 90, ease: "none", rotation: gsap_val});
       gsap_rotation.resume();
+      console.log('faster');
     }
     jQuery('.lovushka_speed').text(rotat_per_sec);
   });

@@ -44,48 +44,29 @@
   line-height: 150%;
 }
 
-.weglot-upsell-dialog .ui-dialog-titlebar,
-.amelia-upsell-dialog .ui-dialog-titlebar {
+.weglot-upsell-dialog .ui-dialog-titlebar {
   background: linear-gradient(140deg, #335ee2 10%, #271f50 90%);
   text-align: center;
   height: 55px;
 }
 
-.weglot-upsell-dialog .ui-dialog-titlebar img,
-.mailoptin-upsell-dialog .ui-dialog-titlebar img,
-.amelia-upsell-dialog .ui-dialog-titlebar img {
+.weglot-upsell-dialog .ui-dialog-titlebar img {
   height: 32px;
   display: inline-block;
   margin: 11px 0 0 0;
 }
-.mailoptin-upsell-dialog .ui-dialog-titlebar{
-  background: #2980b9;
-  text-align: center;
-  height: 55px;
-}
 
-.amelia-upsell-dialog .ui-dialog-titlebar {
-  background: #3ba6ff;
-  text-align: center;
-  height: 55px;
-}
-
-.weglot-upsell-dialog .ui-button.ui-dialog-titlebar-close,
-.mailoptin-upsell-dialog .ui-button.ui-dialog-titlebar-close,
-.amelia-upsell-dialog .ui-button.ui-dialog-titlebar-close {
+.weglot-upsell-dialog .ui-button.ui-dialog-titlebar-close {
   color: #fff;
   height: 55px;
 }
 
-#promo-extended img,
-#promo-amelia img {
+#promo-extended img {
   max-width: 100%;
 }
 
-#promo-amelia .inside {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+#promo-sn img {
+  max-width: 100%;
 }
 
 #wpbody-content .metabox-holder {
@@ -460,4 +441,56 @@
 }
 .theme-thumb .ribbon span {
   padding: 10px;
+}
+
+/******** DIALOG ********/
+#dialog-form-new-info-form label, #dialog-form-new-info-form input { display:block; margin-bottom: 5px; }
+#dialog-form-new-info-form input.text { margin-bottom:12px; width:95%; padding: .4em; }
+#dialog-form-new-info-form fieldset { padding:0; border:0; margin-top:25px; }
+#dialog-form-new-info-form input.ui-state-error { padding: .3em !important; background: palevioletred; }
+#dialog-form-new-info p.ui-state-highlight { border: 1px solid transparent !important; padding: 0.3em !important; background: palevioletred; display: inline; }
+
+.new-version-dialog .ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+.new-version-dialog .ui-dialog-titlebar {
+  text-align: center;
+  padding: 10px;
+}
+
+#dialog-form-new-info {
+  font-size: 15px;
+  padding: 10px 50px;
+}
+#dialog-form-new-info p {
+  font-size: 15px;
+}
+
+.new-version-dialog .ui-dialog-buttonpane {
+  text-align: center;
+}
+
+.new-version-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: none;
+}
+
+.new-version-dialog .buttons {
+  padding: 20px 0 0 0;
+  text-align: center;
+}
+
+.new-version-dialog .buttons small {
+  display: inline-block;
+  padding: 10px 0 0 0;
+  opacity: 0.7;
+}
+
+.new-version-dialog .submit-new-dialog {
+  font-size: 17px;
+}
+
+.new-version-dialog ul {
+  list-style-type: disc;
+  list-style-position: inside;
 }

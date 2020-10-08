@@ -12,12 +12,12 @@ function rcl_add_order_manager() {
 
 add_action( 'rcl_order_before', 'rcl_add_order_notices', 10 );
 function rcl_add_order_notices() {
-	global $rclOrder, $rmag_options, $user_ID, $rcl_user_URL;
+	global $rclOrder, $user_ID, $rcl_user_URL;
 
 	if ( ! isset( $_GET['order-status'] ) )
 		return false;
 
-	$buyer_register = (isset( $rmag_options['buyer_register'] )) ? $rmag_options['buyer_register'] : 1;
+	$buyer_register = rcl_get_commerce_option( 'buyer_register', 1 );
 
 	$status = intval( $_GET['order-status'] );
 
@@ -74,10 +74,55 @@ function rcl_add_order_notices() {
 	echo $notice;
 }
 
+add_action( 'rcl_order_before', 'rcl_add_order_details', 20 );
+function rcl_add_order_details() {
+	global $rclOrder;
+
+	$content = '<div class="rcl-order-details order-before-box">';
+
+	$content .= '<div class="title-before-box">' . __( 'Order data', 'wp-recall' ) . '</div>';
+
+	$content .= '<div class="content-before-box">';
+
+	$content .= '<p>' . __( 'Order', 'wp-recall' ) . ' №: ' . $rclOrder->order_id . '</p>';
+	$content .= '<p>' . __( 'Order status', 'wp-recall' ) . ': ' . rcl_get_status_name_order( $rclOrder->order_status ) . '</p>';
+	$content .= '<p>' . __( 'Created date', 'wp-recall' ) . ': ' . $rclOrder->order_date . '</p>';
+
+	$content .= '</div>';
+
+	if ( $rclOrder->order_details ) {
+
+		$content .= '<div class="title-before-box">' . __( 'Data specified when placing the order', 'wp-recall' ) . '</div>';
+
+		$content .= '<div class="content-before-box">';
+
+		if ( is_array( $rclOrder->order_details ) ) {
+
+			foreach ( $rclOrder->order_details as $k => $data ) {
+
+				$data['slug'] = $k;
+
+				$fieldObject = Rcl_Field::setup( $data );
+
+				$content .= $fieldObject->get_field_value( true );
+			}
+		} else {
+			//поддержка заказов созданных ранее версии 16.0
+			$content .= $rclOrder->order_details;
+		}
+
+		$content .= '</div>';
+	}
+
+	$content .= '</div>';
+
+	echo $content;
+}
+
 if ( ! is_admin() )
 	add_action( 'rcl_order_before', 'rcl_add_order_pay_form', 30 );
 function rcl_add_order_pay_form() {
-	global $user_ID, $rclOrder, $rmag_options;
+	global $user_ID, $rclOrder;
 
 	if ( ! isset( $_GET['order-status'] ) && ! rcl_is_office() )
 		return false;
@@ -87,12 +132,14 @@ function rcl_add_order_pay_form() {
 
 	if ( function_exists( 'rcl_get_pay_form' ) ) {
 
-		$type_pay = $rmag_options['type_order_payment'];
+		$type_pay = rcl_get_commerce_option( 'type_order_payment' );
 
 		$dataPay = array(
 			'baggage_data'	 => array(
 				'order_id' => $rclOrder->order_id
 			),
+			'pay_type'		 => 'order-payment',
+			//'return_url'	 => rcl_get_tab_permalink( $user_ID, 'orders' ) . '&order-id' . $rclOrder->order_id,
 			'pay_id'		 => $rclOrder->order_id,
 			'user_id'		 => $rclOrder->user_id,
 			'pay_summ'		 => $rclOrder->order_price,
@@ -117,48 +164,4 @@ function rcl_add_order_pay_form() {
 
 		echo $content;
 	}
-}
-
-add_action( 'rcl_order_before', 'rcl_add_order_details', 20 );
-function rcl_add_order_details() {
-	global $rclOrder;
-
-	if ( ! $rclOrder->order_details )
-		return false;
-
-	$CF = new Rcl_Custom_Fields();
-
-	$content = '<div class="rcl-order-details order-before-box">';
-
-	$content .= '<span class="title-before-box">' . __( 'Order data', 'wp-recall' ) . '</span>';
-
-	$content .= '<div class="content-before-box">';
-
-	$content .= '<p>' . __( 'Order', 'wp-recall' ) . ' №: ' . $rclOrder->order_id . '</p>';
-	$content .= '<p>' . __( 'Order status', 'wp-recall' ) . ': ' . rcl_get_status_name_order( $rclOrder->order_status ) . '</p>';
-	$content .= '<p>' . __( 'Created date', 'wp-recall' ) . ': ' . $rclOrder->order_date . '</p>';
-
-	$content .= '</div>';
-
-	$content .= '<span class="title-before-box">' . __( 'Data specified when placing the order', 'wp-recall' ) . '</span>';
-
-	$content .= '<div class="content-before-box">';
-
-	if ( is_array( $rclOrder->order_details ) ) {
-
-		foreach ( $rclOrder->order_details as $data ) {
-
-			$content .= $CF->get_field_value( $data, $data['value'], true );
-		}
-	} else {
-		//поддержка заказов созданных ранее версии 16.0
-
-		$content .= $rclOrder->order_details;
-	}
-
-	$content .= '</div>';
-
-	$content .= '</div>';
-
-	echo $content;
 }

@@ -12,7 +12,7 @@ function wau_check_post_type( $post_type ) {
 
 function wau_get_option( $name, $default = false ) {
 
-	$WAUOptions = get_option( 'wau_options' );
+	$WAUOptions = get_site_option( 'wau_options' );
 
 	if ( ! isset( $WAUOptions[$name] ) || $WAUOptions[$name] == '' ) {
 		return $default;

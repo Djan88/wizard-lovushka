@@ -1,9 +1,29 @@
 jQuery( function( $ ) {
+
+	if ( RclUploaders.isset( 'rcl_group_avatar' ) ) {
+
+		RclUploaders.get( 'rcl_group_avatar' ).afterDone = function( e, data ) {
+
+			var image = $( '#rcl-group .group-avatar img' ).attr( 'src', data.result.src.full );
+			image.load( function() {
+				image.animateCss( 'zoomIn' );
+			} );
+
+			rcl_do_action( 'rcl_success_upload_group_avatar', data );
+
+		};
+
+		RclUploaders.get( 'rcl_group_avatar' ).animateLoading = function( status ) {
+			status ? rcl_preloader_show( jQuery( '#rcl-group .group-avatar' ) ) : rcl_preloader_hide();
+		};
+	}
+
+
 	jQuery( 'body' ).on( 'click', 'a.rcl-group-link', function() {
 
 		var value = jQuery( this ).data( 'value' );
 
-		if ( jQuery( '#ssi-modalContent' ).size() )
+		if ( jQuery( '#ssi-modalContent' ).length )
 			rcl_preloader_show( jQuery( '#ssi-modalContent' ) );
 		else
 			rcl_preloader_show( jQuery( '#rcl-group' ) );
@@ -28,7 +48,7 @@ jQuery( function( $ ) {
 			var valname = jQuery( this ).parents( '.group-user-option' ).children( '[name*=\'' + name + '\']' ).val();
 		}
 
-		if ( jQuery( '#ssi-modalContent' ).size() )
+		if ( jQuery( '#ssi-modalContent' ).length )
 			rcl_preloader_show( jQuery( '#ssi-modalContent' ) );
 		else
 			rcl_preloader_show( jQuery( '#rcl-group' ) );

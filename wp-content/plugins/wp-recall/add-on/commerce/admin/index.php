@@ -8,9 +8,9 @@ add_action( 'admin_init', 'rcl_commerce_admin_scripts' );
 function rcl_commerce_admin_scripts() {
 
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'rcl_commerce_admin_scripts', rcl_addon_url( 'admin/assets/scripts.js', __FILE__ ) );
-	wp_enqueue_style( 'rcl_commerce_style', rcl_addon_url( 'style.css', __FILE__ ) );
-	wp_enqueue_style( 'rcl_commerce_admin_style', rcl_addon_url( 'admin/assets/style.css', __FILE__ ) );
+	wp_enqueue_script( 'rcl_commerce_admin_scripts', rcl_addon_url( 'admin/assets/scripts.js', __FILE__ ), false, VER_RCL );
+	wp_enqueue_style( 'rcl_commerce_style', rcl_addon_url( 'style.css', __FILE__ ), false, VER_RCL );
+	wp_enqueue_style( 'rcl_commerce_admin_style', rcl_addon_url( 'admin/assets/style.css', __FILE__ ), false, VER_RCL );
 
 	if ( isset( $_GET['page'] ) && $_GET['page'] == 'manage-rmag' ) {
 		rcl_datepicker_scripts();
@@ -28,11 +28,93 @@ function rcl_commerce_menu() {
 	add_submenu_page( 'manage-rmag', __( 'Store settings', 'wp-recall' ), __( 'Store settings', 'wp-recall' ), 'manage_options', 'manage-wpm-options', 'rmag_global_options' );
 }
 
-add_filter( 'admin_options_rmag', 'rcl_commerce_page_options', 5 );
-function rcl_commerce_page_options( $content ) {
-	require_once 'pages/addon-settings.php';
-	$content .= rcl_commerce_options();
-	return $content;
+add_filter( 'rcl_commerce_options', 'rcl_commerce_page_options', 5 );
+function rcl_commerce_page_options( $options ) {
+
+	$options->add_box( 'shop', array(
+		'title' => __( 'Shop`s settings', 'wp-recall' )
+	) )->add_group( 'primary', array(
+		'title' => __( 'General settings', 'wp-recall' )
+	) )->add_options( array(
+		array(
+			'type'	 => 'email',
+			'title'	 => __( 'Email for notifications', 'wp-recall' ),
+			'slug'	 => 'admin_email_magazin_recall',
+			'notice' => __( 'If email is not specified, a notification will be sent to all users of the website with "Administrator" rights', 'wp-recall' )
+		),
+		array(
+			'type'	 => 'select',
+			'title'	 => __( 'Basis currency', 'wp-recall' ),
+			'slug'	 => 'primary_cur',
+			'values' => rcl_get_currency()
+		),
+		array(
+			'type'	 => 'select',
+			'title'	 => __( 'Checkout page', 'wp-recall' ),
+			'slug'	 => 'basket_page_rmag',
+			'values' => rcl_get_pages_ids(),
+			'notice' => __( 'Specify the page with the shortcode [basket]', 'wp-recall' )
+		),
+		array(
+			'type'	 => 'select',
+			'title'	 => __( 'Register at check-out', 'wp-recall' ),
+			'slug'	 => 'buyer_register',
+			'values' => array(
+				__( 'Disabled', 'wp-recall' ),
+				__( 'Enabled', 'wp-recall' )
+			),
+			'notice' => __( 'If enabled, the user will be automatically registered on the site after successfull check-out', 'wp-recall' )
+		)
+	) );
+
+	$options->box( 'shop' )->add_group( 'cart-button', array(
+		'title' => __( 'The output of the button "Add to cart"', 'wp-recall' )
+	) )->add_options( array(
+		array(
+			'type'		 => 'checkbox',
+			'title'		 => __( 'On the product page', 'wp-recall' ),
+			'slug'		 => 'cart_button_single_page',
+			'values'	 => array(
+				'top'	 => __( 'On the description', 'wp-recall' ),
+				'bottom' => __( 'Under the description', 'wp-recall' )
+			),
+			'default'	 => array( 'top', 'bottom' )
+		),
+		array(
+			'type'		 => 'select',
+			'title'		 => __( 'On the archive page', 'wp-recall' ),
+			'slug'		 => 'cart_button_archive_page',
+			'values'	 => array( __( 'Disabled', 'wp-recall' ), __( 'Enabled', 'wp-recall' ) ),
+			'default'	 => 1
+		)
+	) );
+
+	$options->box( 'shop' )->add_group( 'goods', array(
+		'title' => __( 'Similar or recommended goods', 'wp-recall' )
+	) )->add_options( array(
+		array(
+			'type'		 => 'select',
+			'title'		 => __( 'Output order', 'wp-recall' ),
+			'slug'		 => 'sistem_related_products',
+			'values'	 => array( __( 'Disabled', 'wp-recall' ), __( 'Enabled', 'wp-recall' ) ),
+			'childrens'	 => array(
+				1 => array(
+					array(
+						'type'	 => 'text',
+						'title'	 => __( 'Block title for featured products', 'wp-recall' ),
+						'slug'	 => 'title_related_products_recal'
+					),
+					array(
+						'type'	 => 'number',
+						'title'	 => __( 'Number of featured products', 'wp-recall' ),
+						'slug'	 => 'size_related_products'
+					)
+				)
+			)
+		)
+	) );
+
+	return $options;
 }
 
 function rcl_commerce_page_orders() {
@@ -365,10 +447,10 @@ function rcl_get_chart_orders( $orders ) {
 	return rcl_get_chart( $chartArgs );
 }
 
-add_filter( 'rcl_custom_field_options', 'rcl_add_cart_profile_field_option', 10, 3 );
-function rcl_add_cart_profile_field_option( $options, $field, $type ) {
+add_filter( 'rcl_field_options', 'rcl_add_cart_profile_field_option', 10, 3 );
+function rcl_add_cart_profile_field_option( $options, $field, $manager_id ) {
 
-	if ( $type != 'profile' )
+	if ( $manager_id != 'profile' )
 		return $options;
 
 	$options[] = array(

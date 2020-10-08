@@ -31,8 +31,8 @@ function wau_scripts() {
 add_action( 'rcl_activate_wp-access-ultimate', 'wau_activate_actions' );
 function wau_activate_actions() {
 
-	if ( ! get_option( 'wau_options' ) ) {
-		update_option( 'wau_options', array(
+	if ( ! get_site_option( 'wau_options' ) ) {
+		update_site_option( 'wau_options', array(
 			'access-text-archive'	 => '<span style="color:red;font-weight:bold;">Данный контент имеет ограниченный доступ</span>',
 			'access-text-single'	 => '<span style="color:red;font-weight:bold;">Данный контент имеет ограниченный доступ</span>',
 			'mail-text-remind'		 => __( 'Уважаемый, {userName}!<br />'
@@ -154,8 +154,10 @@ function wau_payment( $payData ) {
 
 	$tariff_price = wau_get_tariff_price( $baggage->tariff_id, $payData->user_id );
 
-	if ( $tariff_price != $payData->pay_summ )
+	if ( rcl_commercial_round( $tariff_price ) != rcl_commercial_round( $payData->pay_summ ) ) {
+		rcl_add_log( 'wau_payment', ['tariff_price' => $tariff_price, $payData ], 1 );
 		return false;
+	}
 
 	do_action( 'wau_pre_payment_access', $payData, $tariff );
 
@@ -187,7 +189,7 @@ function wau_send_email_about_payment_access( $payment_id ) {
     <p>Приобретенный аккаунт: ' . $payment->account_name . '.</p>
     <p>Время по тарифу: ' . wau_time_to_strdate( $payment->access_time ) . '</p>';
 
-	rcl_mail( get_option( 'admin_email' ), $subject, $textmail );
+	rcl_mail( get_site_option( 'admin_email' ), $subject, $textmail );
 
 	//Отправляем письмо об оплате покупателю
 	$textmail = '
@@ -239,7 +241,7 @@ function wau_add_access_field( $fields, $post_type ) {
 		'title'			 => __( 'Платный доступ' ),
 		'type'			 => 'custom',
 		'wau-options'	 => $defaultVals,
-		'options-field'	 => array(
+		'options'		 => array(
 			array(
 				'type'	 => 'checkbox',
 				'slug'	 => 'wau-options',

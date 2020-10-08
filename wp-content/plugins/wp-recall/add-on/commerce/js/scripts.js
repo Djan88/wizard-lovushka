@@ -100,7 +100,8 @@ function rcl_variations_loop( loopData ) {
 				return;
 
 			if ( type == 'checkbox' ) {
-				if ( input.attr( 'checked' ) == 'checked' ) {
+
+				if ( input.is( ':checked' ) ) {
 					Rcl.Variations[product_id][i].price += varPrice;
 				} else {
 					Rcl.Variations[product_id][i].price -= varPrice;
@@ -320,7 +321,7 @@ function rcl_add_to_cart( e ) {
 
 	var product_id = form.data( 'product' );
 
-	if ( jQuery( '#product-' + product_id ).size() ) {
+	if ( jQuery( '#product-' + product_id ).length ) {
 		rcl_preloader_show( jQuery( '#product-' + product_id ) );
 	} else {
 		rcl_preloader_show( box );
@@ -332,7 +333,7 @@ function rcl_add_to_cart( e ) {
 
 			if ( data.modal ) {
 
-				if ( jQuery( '#ssi-modalContent' ).size() )
+				if ( jQuery( '#ssi-modalContent' ).length )
 					ssi_modal.close();
 
 				ssi_modal.show( {

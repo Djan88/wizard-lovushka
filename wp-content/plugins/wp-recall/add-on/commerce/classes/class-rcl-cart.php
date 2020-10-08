@@ -8,10 +8,9 @@ class Rcl_Cart {
 	public $cart_url		 = '#';
 
 	function __construct( $args = false ) {
-		global $rmag_options;
 
-		if ( isset( $rmag_options['basket_page_rmag'] ) )
-			$this->cart_url = get_permalink( $rmag_options['basket_page_rmag'] );
+		if ( $page_id		 = rcl_get_commerce_option( 'basket_page_rmag' ) )
+			$this->cart_url	 = get_permalink( $page_id );
 
 		$this->products = (isset( $args['cart_products'] ) && $args['cart_products']) ? $args['cart_products'] : $this->get_cookie();
 
@@ -134,6 +133,9 @@ class Rcl_Cart {
 			$varsHash = md5( json_encode( $vars ) );
 
 		foreach ( $this->products as $key => $product ) {
+
+			if ( ! $product || ! is_object( $product ) )
+				continue;
 
 			if ( $product->product_id == $product_id ) {
 

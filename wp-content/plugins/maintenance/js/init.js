@@ -1,3 +1,5 @@
+var dialogCheckIntervalHandler;
+
 jQuery(window).ready(function($) {
   jQuery.fn.tzCheckbox = function(options) {
     options = jQuery.extend(
@@ -111,11 +113,12 @@ jQuery(window).ready(function($) {
 
     return false;
   });
-  $('#mailoptin_support').on('click change', function(e) {
+
+  $('#smush_support').on('click change', function(e) {
     e.preventDefault();
     $(this).prop("checked", false);
 
-    $('#mailoptin-upsell-dialog').dialog('open');
+    $('.smush-thickbox').first().trigger('click');
 
     return false;
   });
@@ -152,48 +155,6 @@ jQuery(window).ready(function($) {
     return false;
   });
 
-  $('#amelia-upsell-dialog').dialog({'dialogClass': 'wp-dialog amelia-upsell-dialog',
-                              'modal': 1,
-                              'resizable': false,
-                              'title': 'Translate your maintenance page to any language', //todo
-                              'zIndex': 9999,
-                              'width': 550,
-                              'height': 'auto',
-                              'show': 'fade',
-                              'hide': 'fade',
-                              'open': function(event, ui) {
-                                maintenance_fix_dialog_close(event, ui);
-                                $(this).siblings().find('span.ui-dialog-title').html(mtnc.amelia_dialog_upsell_title);
-                              },
-                              'close': function(event, ui) { },
-                              'autoOpen': false,
-                              'closeOnEscape': true
-  });
-  $(window).resize(function(e) {
-    $('#amelia-upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});
-  });
-
-  $('body').on('click', '.open-amelia-upsell', function(e) {
-    e.preventDefault();
-
-    $(this).blur();
-
-    $('#amelia-upsell-dialog').dialog('open');
-
-    return false;
-  });
-
-  $('body').on('click', '.open-mailoptin-upsell', function(e) {
-    e.preventDefault();
-
-    $(this).blur();
-
-    $('#mailoptin-upsell-dialog').dialog('open');
-
-    return false;
-  });
-
-
   jQuery('#install-weglot').on('click',function(e){
     $('#weglot-upsell-dialog').dialog('close');
     jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.weglot_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
@@ -202,49 +163,10 @@ jQuery(window).ready(function($) {
     return false;
   });
 
-  jQuery('#install-amelia').on('click',function(e){
-    $('#amelia-upsell-dialog').dialog('close');
-    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.amelia_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
-    jQuery('#wpwrap').css('pointer-events', 'none');
-    e.preventDefault();
-    return false;
-  });
-
-  // upsell dialog init
-  $('#mailoptin-upsell-dialog').dialog({'dialogClass': 'wp-dialog mailoptin-upsell-dialog',
-                              'modal': 1,
-                              'resizable': false,
-                              'title': 'Start Collecting Leads and Subscribers',
-                              'zIndex': 9999,
-                              'width': 550,
-                              'height': 'auto',
-                              'show': 'fade',
-                              'hide': 'fade',
-                              'open': function(event, ui) {
-                                maintenance_fix_dialog_close(event, ui);
-                                $(this).siblings().find('span.ui-dialog-title').html(mtnc.mailoptin_dialog_upsell_title);
-                              },
-                              'close': function(event, ui) { },
-                              'autoOpen': false,
-                              'closeOnEscape': true
-  });
-  $(window).resize(function(e) {
-    $('#mailoptin-upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});
-  });
-
-
-  jQuery('#install-mailoptin').on('click',function(e){
-    $('#mailoptin-upsell-dialog').dialog('close');
-    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.mailoptin_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
-    jQuery('#wpwrap').css('pointer-events', 'none');
-    e.preventDefault();
-    return false;
-  });
-
 
   /******************* */
 
-  wp.codeEditor.initialize(jQuery('#custom_css'), cm_settings);
+  wp.codeEditor.initialize(jQuery('#custom_css'), mtnc.cm_settings);
 
   var t = null,
     t = jQuery.getJSON(mtnc.path + 'includes/fonts/googlefonts.json');
@@ -262,6 +184,151 @@ jQuery(window).ready(function($) {
           0 == o && jQuery('#s2id_body_font_subset .select2-choice .select2-chosen').append(font[n].variants[o]),
             jQuery('#body_font_subset').append('<option>' + font[n].variants[o] + '</option>');
   };
+
+  /******************* */
+
+  var dialogForNewInfo;
+  var dialogForNewInfoForm;
+  var emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  var nameField = $( "#name" );
+  var emailField = $( "#email" );
+  var allFields = $( [] ).add( nameField ).add( emailField );
+  var validateTips = $( ".validateTips" );
+
+  function updateTips( t ) {
+    if ( t === '') {
+      validateTips
+          .text( t )
+          .removeClass( "ui-state-highlight" );
+      return;
+    }
+    validateTips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+  }
+
+  function checkLength( o, n, min, max ) {
+    if ( o.val().length > max || o.val().length < min ) {
+      o.addClass( "ui-state-error" );
+      updateTips( "Length of the " + n + " must be between " +
+          min + " and " + max + " characters." );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function checkRegexp( o, regexp, n ) {
+    if ( !( regexp.test( o.val() ) ) ) {
+      o.addClass( "ui-state-error" );
+      updateTips( n );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function submitUserInfo() {
+    var valid = true;
+    updateTips('');
+    allFields.removeClass( "ui-state-error" );
+    valid = valid && checkLength( nameField, "name", 3, 30 );
+    valid = valid && checkLength( emailField, "email", 6, 30 );
+
+    valid = valid && checkRegexp( nameField, /^[a-z]([a-z\s])+$/i, "Name may consist of a-z, spaces and must begin with a letter." );
+    valid = valid && checkRegexp( emailField, emailRegex, "Please enter a valid email address" );
+
+    if ( valid ) {
+      document.cookie = 'SameSite=None; Secure';
+      var dt = new Date();
+      $.ajax({
+        url: 'https://wpmaintenancemode.com/get-emails/submit.php',
+        method: 'POST',
+        crossDomain: true,
+        data: { name: nameField.val(), email: emailField.val(), site_url: mtnc.site_url, timestamp: dt.toISOString() }
+      })
+      .done(function(response) {
+        alert('Thank you for trusting us with your email. We\'ll let you know as soon as the new version of the plugin is available!');
+        dismissAskForInfoPopUp();
+        //console.log(response);
+      })
+      .fail(function(error) {
+        //alert('Sorry, something is not right :( Please try again later.');console.log(error);
+        alert('Sorry, something is not right :( Please try again later.');
+      }).always(function() {
+        dialogForNewInfo.dialog( "close" );
+      })
+    }
+
+    return valid;
+  }
+
+  $('.dismiss-new-dialog').on('click', function(e) {
+    e.preventDefault();
+
+    dismissAskForInfoPopUp();
+
+    return false;
+  });
+
+  $('.submit-new-dialog').on('click', function(e) {
+    e.preventDefault();
+
+    submitUserInfo();
+
+    return false;
+  });
+
+  function dismissAskForInfoPopUp() {
+    $.ajax({url: mtnc.dismiss_dialog_link, method: 'GET'});
+    dialogForNewInfo.dialog( "close" );
+  }
+
+  dialogForNewInfo = $( "#dialog-form-new-info" ).dialog({
+    autoOpen: false,
+    'dialogClass': 'wp-dialog new-version-dialog no-close',
+    _height: 417,
+    width: 700,
+    closeOnEscape: false,
+    modal: true,
+    _buttons: {
+      "I want to be the first to know about the new version": submitUserInfo,
+      "I'm not interested": dismissAskForInfoPopUp,
+      /*'Cancel': function() {
+        dialogForNewInfo.dialog( "close" );
+      },*/
+
+    },
+    close: function() {
+      dialogForNewInfoForm[ 0 ].reset();
+      allFields.removeClass( "ui-state-error" );
+    }
+  });
+
+  dialogForNewInfoForm = dialogForNewInfo.find( "form#dialog-form-new-info-form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    submitUserInfo();
+  });
+
+  $( "#test-btn-dialog" ).button().on( "click", function() {
+    dialogForNewInfo.dialog( "open" );
+  });
+
+  function checkIfHasToShowDialog() {
+    var serverTime = getServerTime($);
+    var serverTimeTimeStamp = getTimestamp(serverTime);
+
+    if (mtnc.first_install_date < serverTimeTimeStamp) {
+      stopDialogInterval();
+      dialogForNewInfo.dialog( "open" );
+    }
+  }
+
+  if (mtnc.isDialogDismiss == 0) {
+    dialogCheckIntervalHandler = setInterval(checkIfHasToShowDialog, 60000);
+    checkIfHasToShowDialog();
+  }
+
 });
 
 function maintenance_fix_dialog_close(event, ui) {
@@ -269,3 +336,23 @@ function maintenance_fix_dialog_close(event, ui) {
     jQuery('#' + event.target.id).dialog('close');
   });
 } // maintenance_fix_dialog_close
+
+
+/*
+Servers normally has a different time from browser... We need server side datetime to make some checks
+ */
+function getServerTime($) {
+  return $.ajax({async: false}).getResponseHeader( 'Date' );
+}
+
+/*
+we need timestamps... It's more fast to compare
+ */
+function getTimestamp(strDate){
+  var datum = Date.parse(strDate);
+  return datum/1000;
+}
+
+function stopDialogInterval() {
+  clearInterval(dialogCheckIntervalHandler);
+}

@@ -4,7 +4,7 @@ add_action('admin_menu', 'mtnc_admin_setup');
 function mtnc_admin_setup()
 {
   global  $mtnc_variable;
-  $mtnc_variable->options_page = add_menu_page(__('Maintenance', 'maintenance'), __('Maintenance', 'maintenance'), 'manage_options', 'maintenance', 'mtnc_manage_options', MTNC_URI . '/images/icon-small.png');
+  $mtnc_variable->options_page = add_menu_page(__('Maintenance', 'maintenance'), __('Maintenance', 'maintenance'), 'manage_options', 'maintenance', 'mtnc_manage_options', MTNC_URI . 'images/icon-small.png');
 
   add_action('admin_init', 'mtnc_register_settings');
   add_action("admin_head-{$mtnc_variable->options_page}", 'mtnc_metaboxes_scripts');
@@ -12,6 +12,34 @@ function mtnc_admin_setup()
   add_action("load-{$mtnc_variable->options_page}", 'mtnc_page_add_meta_boxes');
   add_action('admin_enqueue_scripts', 'mtnc_load_later_scripts', 1);
   add_action('admin_enqueue_scripts', 'mtnc_codemirror_enqueue_scripts');
+  add_action('admin_footer', 'mtnc_plugin_information', 1, 0);
+}
+
+function mtnc_plugin_dismiss_dialog() {
+	if ( !wp_verify_nonce( $_REQUEST['nonce'], "mtnc_dismiss_nonce")) {
+		exit("Woof Woof Woof");
+	}
+
+	$meta = get_option('maintenance_meta', array());
+
+	if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'mtnc_dismiss_dialog') {
+		$meta['mtnc_dismiss_dialog'] = true;
+
+		update_option('maintenance_meta', $meta);
+    }
+
+	die();
+}
+add_action("wp_ajax_mtnc_dismiss_dialog", "mtnc_plugin_dismiss_dialog");
+
+function mtnc_plugin_information() {
+  if (empty($_GET['fix-install-button']) || empty($_GET['tab']) || $_GET['tab'] != 'plugin-information') {
+    return;
+  }
+
+  echo '<script>';
+  echo "jQuery('#plugin_install_from_iframe').on('click', function() { window.location.href = jQuery(this).attr('href'); return false;});";
+  echo '</script>';
 }
 
 function mtnc_page_add_meta_boxes()
@@ -22,6 +50,7 @@ function mtnc_page_add_meta_boxes()
 
 function mtnc_register_settings()
 {
+
   if (!empty($_POST['lib_options']) && check_admin_referer('mtnc_edit_post', 'mtnc_nonce')) {
     if (!isset($_POST['lib_options']['state'])) {
       $_POST['lib_options']['state'] = 0;
@@ -56,23 +85,69 @@ function mtnc_admin_print_custom_styles()
   wp_enqueue_script('wp-lists');
   wp_enqueue_script('postbox');
 
+  wp_enqueue_style('plugin-install');
+  wp_enqueue_script('plugin-install');
+
   wp_enqueue_style('arvo', '//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Arvo:400,400italic,700,700italic');
   wp_enqueue_style('wp-color-picker');
 
   wp_enqueue_script('uploads_', MTNC_URI . 'js/uploads_.min.js', 'jquery', filemtime(MTNC_DIR . 'js/uploads_.min.js'), '');
   wp_register_script('mtnc', MTNC_URI . 'js/init.js', array('wp-color-picker'), filemtime(MTNC_DIR . 'js/init.js'), true);
-  wp_localize_script('mtnc', 'mtnc', array('path' => MTNC_URI,
-    'weglot_install_url' => add_query_arg(array('action' => 'mtnc_install_weglot', 'rnd' => rand()), admin_url('admin.php')),
-    'weglot_dialog_upsell_title' => '<img alt="Weglot" title="Weglot" src="' . MTNC_URI . 'images/weglot-logo-white.png' . '">',
-    'amelia_install_url' => add_query_arg(array('action' => 'mtnc_install_amelia', 'rnd' => rand()), admin_url('admin.php')),
-    'amelia_dialog_upsell_title' => '<img alt="Amelia Booking" title="Amelia Booking" src="' . MTNC_URI . 'images/amelia-logo-white.png' . '">',
-    'mailoptin_dialog_upsell_title' => '<img alt="MailOptin" title="MailOptin" src="' . MTNC_URI . 'images/mailoptin-logo-white.png' . '">',
-    'mailoptin_install_url' => add_query_arg(array('action' => 'mtnc_install_mailoptin'), admin_url('admin.php'))));
+
+  $cm_settings['codeEditor'] = wp_enqueue_code_editor(array('type' => 'text/css'));
+  $meta                                 = get_option('maintenance_meta', array());
+  $firstInstallDateTime             = date('Y-m-d H:i:s', $meta['first_install']);
+  $firstInstallDateTimeTimeStamp     = (new DateTime($firstInstallDateTime))->add(new DateInterval('PT15M'))->getTimestamp();
+
+  $nonce = wp_create_nonce("mtnc_dismiss_nonce");
+  $dismissDialogLink = admin_url('admin-ajax.php?action=mtnc_dismiss_dialog&nonce='.$nonce);
+
+  $meta = get_option('maintenance_meta', array());
+  $isDialogDismiss = isset($meta['mtnc_dismiss_dialog']) ? $meta['mtnc_dismiss_dialog'] : 0;
+  $isDialogDismiss = 1;
+
+  wp_localize_script(
+        'mtnc',
+    'mtnc',
+                array(
+                        'path' => MTNC_URI,
+                        'weglot_install_url' => add_query_arg(
+                                array(
+                                        'action' => 'mtnc_install_weglot',
+                                        'rnd' => rand()
+                                ),
+                                admin_url('admin.php')
+                        ),
+                        'weglot_dialog_upsell_title' => '<img alt="Weglot" title="Weglot" src="' . MTNC_URI . 'images/weglot-logo-white.png' . '">',
+                        'cm_settings' =>  $cm_settings,
+                        'site_url' => home_url(),
+                        'first_install_date' => $firstInstallDateTimeTimeStamp,
+                        'dismiss_dialog_link' => $dismissDialogLink,
+                        'isDialogDismiss' => $isDialogDismiss
+                )
+  );
+
   wp_enqueue_script('mtnc');
   wp_enqueue_style('mtnc', MTNC_URI . 'css/admin.css', '', filemtime(MTNC_DIR . 'css/admin.css'));
 
   wp_enqueue_style('wp-jquery-ui-dialog');
   wp_enqueue_script('jquery-ui-dialog');
+
+  add_thickbox();
+
+  // fix for aggressive plugins that include their CSS on all pages
+  wp_dequeue_style('uiStyleSheet');
+  wp_dequeue_style('wpcufpnAdmin');
+  wp_dequeue_style('unifStyleSheet');
+  wp_dequeue_style('wpcufpn_codemirror');
+  wp_dequeue_style('wpcufpn_codemirrorTheme');
+  wp_dequeue_style('collapse-admin-css');
+  wp_dequeue_style('jquery-ui-css');
+  wp_dequeue_style('tribe-common-admin');
+  wp_dequeue_style('file-manager__jquery-ui-css');
+  wp_dequeue_style('file-manager__jquery-ui-css-theme');
+  wp_dequeue_style('wpmegmaps-jqueryui');
+  wp_dequeue_style('wp-botwatch-css');
 }
 
 function mtnc_codemirror_enqueue_scripts($hook)
@@ -126,7 +201,42 @@ function mtnc_generate_plugin_page()
 {
   global  $mtnc_variable;
   $mt_option = mtnc_get_plugin_options(true);
+  $date      = new DateTime();
   ?>
+
+<div id="dialog-form-new-info" title="🚀 We're Rebuilding the Maintenance plugin! 🚀" style="display: none;">
+        <p>Dear user!<br>We're super excited to tell you that we started working on the new version of the Maintenance plugin. <b>We want you to be a part of the journey!</b> We need your ideas, your input, your feedback! That's why we want to send you the new version before it's available to the public. Here's what we have planned;</p>
+        <ul>
+            <li>simpler &amp; faster admin interface</li>
+            <li>pre-built themes so you can work even faster</li>
+            <li>easier access control via IPs, users, and secret links</li>
+            <li>better cache handling so you never get stuck in maintenance mode</li>
+        </ul>
+        <hr>
+        <p class="validateTips"></p>
+        <form id="dialog-form-new-info-form">
+            <fieldset>
+                <label for="name">Name (*)</label>
+                <input type="text" name="name" id="name" value="" placeholder="How shall we call you?" class="text ui-widget-content ui-corner-all" required>
+
+                <label for="email">Email (*)</label>
+                <input type="text" name="email" id="email" value="" placeholder="Your best email address" class="text ui-widget-content ui-corner-all" required>
+
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+                <span>
+                    <i>We hate SPAM and never send it! And we won't share your email with anybody else.</i>
+                </span>
+
+                <div class="buttons">
+                    <a href="#" class="submit-new-dialog button button-primary">I want to be the first to know about the new plugin version</a>
+                    <br>
+                    <a href="#" class="dismiss-new-dialog"><small>I'm not interested</small></a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
   <div id="maintenance-options" class="wrap">
     <form method="post" action="" enctype="multipart/form-data" name="options-form">
       <?php wp_nonce_field('mtnc_edit_post', 'mtnc_nonce'); ?>
@@ -155,22 +265,6 @@ function mtnc_generate_plugin_page()
     </form>
   </div>
 <?php
-// mailoptin install dialog
-echo '<div id="mailoptin-upsell-dialog" style="display: none;" title="MailOptin"><span class="ui-helper-hidden-accessible"><input type="text"/></span>';
-echo '<div style="padding: 20px; font-size: 14px;">';
-echo '<ul class="mtnc-list">';
-echo '<li>completely free plugin that integrates with Maintenance</li>';
-echo '<li>instantly start collecting leads &amp; subscribers</li>';
-echo '<li>use an optin form on the bottom of Maintenance content</li>';
-echo '<li>or try a popup/lightbox optin</li>';
-echo '<li>easily connect with Mailchimp and other leading autoresponder services</li>';
-echo '<li>completely customize the look &amp; feel of the optin form</li>';
-echo '</ul>';
-echo '<p class="upsell-footer"><a class="button button-primary" id="install-mailoptin">Install &amp; activate MailOptin to start collecting leads</a></p>';
-echo '</div>';
-echo '</div>';
-// mailoptin install dialog
-
 // weglot install dialog
 echo '<div id="weglot-upsell-dialog" style="display: none;" title="Weglot"><span class="ui-helper-hidden-accessible"><input type="text"/></span>';
 echo '<div style="padding: 20px; font-size: 15px;">';
@@ -186,20 +280,4 @@ echo '<p class="upsell-footer"><a class="button button-primary" id="install-wegl
 echo '</div>';
 echo '</div>';
 // weglot install dialog
-
-// amelia install dialog
-echo '<div id="amelia-upsell-dialog" style="display: none;" title="Amelia Booking"><span class="ui-helper-hidden-accessible"><input type="text"/></span>';
-echo '<div style="padding: 0 20px 20px 20px; font-size: 15px;">';
-echo '<ul class="mtnc-list">';
-echo '<li>Start booking events and appointements for free</li>';
-echo '<li>A convenient Calendar view on the back-end, giving a full overview on all the appointments and the statuses</li>';
-echo '<li>Flexible Appointment Management page, with an option to add appointments by your staff from the WordPress admin dashboard</li>';
-echo '<li>All key numbers are available in the Dashboard</li>';
-echo '<li>Email notifications to the customer and yourself when the appointment status changes</li>';
-echo '<li>Free and used by +10,000 sites</li>';
-echo '</ul>';
-echo '<p class="upsell-footer textcenter"><br><a class="button button-primary" id="install-amelia">Install &amp; activate Amelia Booking to enable bookings calendar</a></p>';
-echo '</div>';
-echo '</div>';
-// amelia install dialog
 }

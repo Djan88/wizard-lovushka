@@ -14,9 +14,8 @@ class Rcl_Create_Order {
 	public $is_error		 = 0;
 
 	function __construct() {
-		global $rmag_options;
 
-		$this->buyer_register = (isset( $rmag_options['buyer_register'] )) ? $rmag_options['buyer_register'] : 1;
+		$this->buyer_register = rcl_get_commerce_option( 'buyer_register', 1 );
 
 		$this->init_orderdata();
 	}
@@ -66,7 +65,7 @@ class Rcl_Create_Order {
 		}
 
 		if ( $this->order_price < 0 ) {
-			return $this->error( 'data_invalid', __( 'Неверные данные заказа!', 'wp-recall' ) );
+			return $this->error( 'data_invalid', __( 'The data of order are wrong!', 'wp-recall' ) );
 		}
 
 		$args = array(
@@ -97,10 +96,7 @@ class Rcl_Create_Order {
 
 		foreach ( $Cart->fields as $field ) {
 
-			if ( $field['type'] == 'file' ) {
-
-				$value = rcl_upload_meta_file( $field, $this->user_id );
-			} else if ( $field['type'] == 'agree' ) {
+			if ( $field['type'] == 'agree' ) {
 
 				$value = (isset( $_POST[$field['slug']] ) && $_POST[$field['slug']]) ? 'Принято' : false;
 			} else {

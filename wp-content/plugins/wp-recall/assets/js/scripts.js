@@ -1,33 +1,5 @@
 
 jQuery( function( $ ) {
-
-	$.fn.extend( {
-		insertAtCaret: function( myValue ) {
-			return this.each( function( i ) {
-				if ( document.selection ) {
-					// Для браузеров типа Internet Explorer
-					this.focus();
-					var sel = document.selection.createRange();
-					sel.text = myValue;
-					this.focus();
-				} else if ( this.selectionStart || this.selectionStart == '0' ) {
-					// Для браузеров типа Firefox и других Webkit-ов
-					var startPos = this.selectionStart;
-					var endPos = this.selectionEnd;
-					var scrollTop = this.scrollTop;
-					this.value = this.value.substring( 0, startPos ) + myValue + this.value.substring( endPos, this.value.length );
-					this.focus();
-					this.selectionStart = startPos + myValue.length;
-					this.selectionEnd = startPos + myValue.length;
-					this.scrollTop = scrollTop;
-				} else {
-					this.value += myValue;
-					this.focus();
-				}
-			} )
-		}
-	} );
-
 	rcl_do_action( 'rcl_init' );
 } );
 
@@ -96,10 +68,11 @@ function rcl_init_ajax_tab() {
 
 					rcl_update_history_url( url );
 
-					if ( !subtab_id )
-						jQuery( '.rcl-tab-button .recall-button' ).removeClass( 'active' );
+					if ( !subtab_id ) {
+						jQuery( '.rcl-tab-button .recall-button' ).removeClass( 'active' ).removeClass( 'rcl-bttn__active' );
+					}
 
-					e.addClass( 'active' );
+					e.addClass( 'active' ).addClass( 'rcl-bttn__active' );
 
 					var box_id = '#lk-content';
 
@@ -246,11 +219,14 @@ function passwordStrength( password ) {
 	document.getElementById( "passwordStrength" ).className = "strength" + score;
 }
 
-function rcl_manage_user_black_list( e, user_id ) {
+function rcl_manage_user_black_list( e, user_id, confirmText ) {
 
 	var class_i = jQuery( e ).children( 'i' ).attr( 'class' );
 
 	if ( class_i == 'rcli fa-refresh fa-spin' )
+		return false;
+
+	if ( !confirm( confirmText ) )
 		return false;
 
 	jQuery( e ).children( 'i' ).attr( 'class', 'rcli fa-refresh fa-spin' );
@@ -274,7 +250,7 @@ function rcl_manage_user_black_list( e, user_id ) {
 	return false;
 }
 
-rcl_add_action( 'rcl_init', 'rcl_init_update_requared_checkbox' );
+/*rcl_add_action( 'rcl_init', 'rcl_init_update_requared_checkbox' );*/
 function rcl_init_update_requared_checkbox() {
 
 	jQuery( 'body form' ).find( '.required-checkbox' ).each( function() {
@@ -451,7 +427,7 @@ function rcl_init_check_url_params() {
 
 	if ( rcl_url_params['tab'] ) {
 
-		if ( !jQuery( "#lk-content" ).size() )
+		if ( !jQuery( "#lk-content" ).length )
 			return false;
 
 		if ( options.scroll == 1 ) {

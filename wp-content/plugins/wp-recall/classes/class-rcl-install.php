@@ -50,15 +50,15 @@ class RCL_Install {
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-		dbDelta( self::get_schema() );
+		foreach ( self::get_schema() as $shema ) {
+			dbDelta( $shema );
+		}
 	}
 
 	private static function get_schema() {
 		global $wpdb;
 
 		$collate = '';
-
-		$user_action_table = RCL_PREF . 'user_action';
 
 		if ( $wpdb->has_cap( 'collation' ) ) {
 			if ( ! empty( $wpdb->charset ) ) {
@@ -69,13 +69,23 @@ class RCL_Install {
 			}
 		}
 
-		return "
-        CREATE TABLE IF NOT EXISTS `" . $user_action_table . "` (
-            ID BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-            user BIGINT(20) UNSIGNED NOT NULL,
-            time_action DATETIME NOT NULL,
-            UNIQUE KEY id (id)
-        ) $collate";
+		return array( "
+			CREATE TABLE IF NOT EXISTS `" . RCL_PREF . "user_action` (
+				ID BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				user BIGINT(20) UNSIGNED NOT NULL,
+				time_action DATETIME NOT NULL,
+				UNIQUE KEY id (id)
+			) $collate",
+			"CREATE TABLE IF NOT EXISTS `" . RCL_PREF . "temp_media` (
+				media_id BIGINT(20) UNSIGNED NOT NULL,
+				user_id BIGINT(20) UNSIGNED NOT NULL,
+				session_id VARCHAR(200) NOT NULL,
+				uploader_id VARCHAR(200) NOT NULL,
+				upload_date DATETIME NOT NULL,
+				UNIQUE KEY  media_id (media_id),
+				KEY upload_date (upload_date)
+			) $collate"
+		);
 	}
 
 	private static function create_pages() {
@@ -100,19 +110,16 @@ class RCL_Install {
 			) );
 
 		foreach ( $pages as $key => $page ) {
+
 			if ( is_array( $page ) ) {
-				$page_id = wp_insert_post(
-					array(
+
+				if ( ! rcl_isset_plugin_page( $key ) ) {
+					$rcl_options[$key] = rcl_create_plugin_page_if_need( $key, [
 						'post_title'	 => $page['title'],
 						'post_content'	 => $page['content'],
 						'post_name'		 => $page['name'],
-						'post_status'	 => 'publish',
-						'post_author'	 => 1,
-						'post_type'		 => 'page'
-					)
-				);
-
-				$rcl_options[$key] = $page_id;
+						] );
+				}
 			}
 		}
 	}

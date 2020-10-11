@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/jquery-ui.min.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
   <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -492,6 +493,7 @@
   ============================================================= -->
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-2.1.1.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/gsap.min.js"></script>
   <?php if(current_user_can('administrator')){ ?>
     <script src="<?php bloginfo('template_url'); ?>/js/script_alt.js"></script>

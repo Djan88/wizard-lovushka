@@ -467,4 +467,17 @@ jQuery('.instruction_block').on('click', function(event) {
   jQuery('.speed_closed').tooltip({
     delay: {hide: 2000 }
   })
+
+  //
+  jQuery( function() {
+    var handle = jQuery("#custom-handle");
+    jQuery("#slider").slider({
+      create: function() {
+        handle.text(jQuery(this).slider("value"));
+      },
+      slide: function( event, ui ) {
+        handle.text( ui.value );
+      }
+    });
+  });
 });

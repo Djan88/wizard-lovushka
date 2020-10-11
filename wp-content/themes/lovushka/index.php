@@ -412,6 +412,10 @@
                   <button type="button" data-mode="doubt" data-speed="8" class="btn btn-default easy_mode_item easy_mode_item_doubt">I doubt it</button>
                 </div>
               </div>
+
+              <?php if(current_user_can('administrator')){ ?>
+                <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Реверсивное центрирование</button>
+              <?php } else { ?>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                 <div class="btn-group speed_control">
                   <button type="button" class="btn btn-default manual" data-toggle="modal" data-target="#manual">Правила</button>
@@ -495,11 +499,7 @@
   <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/gsap.min.js"></script>
-  <?php if(current_user_can('administrator')){ ?>
-    <script src="<?php bloginfo('template_url'); ?>/js/script_alt.js"></script>
-  <?php } else { ?>
-    <script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
-  <?php } ?>
+  <script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript" >
       (function (d, w, c) {
@@ -665,6 +665,25 @@
             <div><b>23-34</b> — upper levels of the R-zone, dreams and causal aggregators of high frequencies;</div>
             <div><b>36 <</b> — lower level of karmic K-field (right above the head)</div>
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="revece_bc" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Реверсивное Центрирование</span><span class="hidden en_block">The Reverse Centering</span></h4>
+        </div>
+        <div class="modal-text">
+          <div id="slider">
+            <div id="custom-handle" class="ui-slider-handle"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
+          <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

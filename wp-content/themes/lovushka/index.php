@@ -414,7 +414,9 @@
               </div>
 
               <?php if(current_user_can('administrator')){ ?>
-                <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Реверсивное центрирование</button>
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
+                  <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Реверсивное центрирование</button>
+                </div>
               <?php } ?>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                 <div class="btn-group speed_control">

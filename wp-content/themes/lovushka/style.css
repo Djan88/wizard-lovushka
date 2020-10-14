@@ -496,7 +496,7 @@ button.btn.btn_login
 {
     text-align: left;
 }
-#slider div#custom-handle, #slider div#custom-handle.ui-state-focus
+#slider div#custom-handle
 {
     width: 30px;
     height: 30px;
@@ -504,6 +504,7 @@ button.btn.btn_login
     top: -.7em;
     background: #fda00c;
     border: 1px solid #fff;
+    outline: none;
 }
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled

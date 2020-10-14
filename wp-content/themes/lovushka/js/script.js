@@ -472,13 +472,13 @@ jQuery('.instruction_block').on('click', function(event) {
   jQuery( function() {
     var handle = jQuery("#custom-handle");
     jQuery("#slider").slider({
-      min: 2,
-      max: 9,
+      min: 0,
+      max: 200,
       create: function() {
         handle.text(jQuery(this).slider("value"));
       },
       slide: function( event, ui ) {
-        handle.text( ui.value );
+        // handle.text( ui.value );
       }
     });
   });

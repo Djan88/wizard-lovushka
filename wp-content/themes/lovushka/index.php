@@ -502,6 +502,7 @@
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-2.1.1.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui.min.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/js/jquery.ui.touch-punch.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/gsap.min.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/js/script.js"></script>
   <!-- Yandex.Metrika counter -->

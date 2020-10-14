@@ -472,6 +472,8 @@ jQuery('.instruction_block').on('click', function(event) {
   jQuery( function() {
     var handle = jQuery("#custom-handle");
     jQuery("#slider").slider({
+      min: 0,
+      max: 500,
       create: function() {
         handle.text(jQuery(this).slider("value"));
       },

@@ -416,7 +416,7 @@
               <?php if(current_user_can('administrator')){ ?>
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                   <div class="btn-group revece_mode">
-                    <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Реверсивное центрирование</button>
+                    <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Регрессивное центрирование</button>
                   </div>
                 </div>
               <?php } ?>
@@ -679,7 +679,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Реверсивное Центрирование</span><span class="hidden en_block">The Reverse Centering</span></h4>
+          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Регрессивное Центрирование</span><span class="hidden en_block">The Regress Centering</span></h4>
         </div>
         <div class="modal-text">
           <div class="reverce_age">

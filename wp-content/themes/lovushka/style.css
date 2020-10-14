@@ -506,6 +506,14 @@ button.btn.btn_login
     border: 1px solid #fff;
     outline: none;
 }
+.reverce_age table
+{
+    width: 100%;
+}
+.reverce_age table td
+{
+    text-align: center;
+}
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

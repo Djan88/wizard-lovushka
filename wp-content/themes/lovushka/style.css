@@ -496,6 +496,12 @@ button.btn.btn_login
 {
     text-align: left;
 }
+.reverce_age 
+{
+    padding-bottom: 20px;
+    padding-top: 10px;
+    font-size: 20px;
+}
 #slider div#custom-handle
 {
     width: 30px;

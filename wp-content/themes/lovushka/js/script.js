@@ -484,13 +484,13 @@ jQuery('.instruction_block').on('click', function(event) {
       },
       stop: function( event, ui ) {
         console.log(handle_val);
-        if (handle_val <= 400) {
+        if (handle_val <= 60) {
           mode_speed = 2;
-        } else if (handle_val > 400 && handle_val <= 600) {
+        } else if (handle_val > 60 && handle_val <= 111) {
           mode_speed = 4;
-        } else if (handle_val > 600 && handle_val <= 850) {
+        } else if (handle_val > 111 && handle_val <= 160) {
           mode_speed = 6;
-        } else if (handle_val > 850) {
+        } else if (handle_val > 160) {
           mode_speed = 8;
         }
         jQuery('.reverce_acept').removeClass('hidden');

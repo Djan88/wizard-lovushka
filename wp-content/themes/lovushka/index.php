@@ -694,7 +694,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary ru_block reverce_acept hidden pull-left" data-dismiss="modal">Применить</button>
+          <button class="btn btn-success ru_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Применить</button>
           <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
           <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
         </div>

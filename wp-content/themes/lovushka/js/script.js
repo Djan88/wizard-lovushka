@@ -468,7 +468,7 @@ jQuery('.instruction_block').on('click', function(event) {
     delay: {hide: 2000 }
   })
 
-  //
+  // Регрессивное центрирование
   jQuery( function() {
     var handle = jQuery("#custom-handle");
     var handle_val;
@@ -484,6 +484,7 @@ jQuery('.instruction_block').on('click', function(event) {
       },
       stop: function( event, ui ) {
         console.log(handle_val);
+        jQuery().removeAttr('style');
         if (handle_val <= 60) {
           mode_speed = 2;
         } else if (handle_val > 60 && handle_val <= 111) {
@@ -497,7 +498,7 @@ jQuery('.instruction_block').on('click', function(event) {
       }
     });
   });
-  // Регрессивное центрирование
+  
   jQuery('.revece_bc').on('click', function(event) {
     jQuery('.lovushka_speed').text(0);
     cur_animation_val = 0;
@@ -505,6 +506,7 @@ jQuery('.instruction_block').on('click', function(event) {
     mode_speed = 0;
     jQuery('.protocol').css('transform', 'rotate(0deg)');
     clearInterval(phaseOne);
+    jQuery('.reverce_acept').css('display', 'none');
   });
   jQuery('.reverce_acept').on('click', function(event) {
     cur_animation_val = 0;

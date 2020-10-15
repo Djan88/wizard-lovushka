@@ -496,6 +496,14 @@ jQuery('.instruction_block').on('click', function(event) {
       }
     });
   });
+  // Регрессивное центрирование
+  jQuery('.revece_bc').on('click', function(event) {
+    jQuery('.lovushka_speed').text(0);
+    cur_animation_val = 0;
+    count_animation = 0;
+    mode_speed = 0;
+    jQuery('.protocol').css('transform', 'rotate(0deg)');
+  });
   jQuery('.reverce_acept').on('click', function(event) {
     cur_animation_val = 0;
     count_animation = 0;
@@ -503,7 +511,7 @@ jQuery('.instruction_block').on('click', function(event) {
     jQuery('.speed_faster').addClass('hidden');
     jQuery('.speed_closed').removeClass('hidden');
     phaseOne = setInterval(function(){
-      if (count_animation <= 240){                      //4
+      if (count_animation <= 240){
         jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
         count_animation += 0.5;
         cur_animation_val -= mode_speed;

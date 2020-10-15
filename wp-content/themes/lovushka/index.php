@@ -412,7 +412,6 @@
                   <button type="button" data-mode="doubt" data-speed="8" class="btn btn-default easy_mode_item easy_mode_item_doubt">I doubt it</button>
                 </div>
               </div>
-
               <?php if(current_user_can('administrator')){ ?>
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                   <div class="btn-group revece_mode">
@@ -695,6 +694,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-success ru_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Применить</button>
+          <button class="btn btn-success en_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Acept</button>
           <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
           <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
         </div>

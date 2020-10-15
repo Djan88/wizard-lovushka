@@ -483,6 +483,7 @@ jQuery('.instruction_block').on('click', function(event) {
         handle_val = ui.value;
       },
       stop: function( event, ui ) {
+        console.log(handle_val);
         if (handle_val <= 400) {
           mode_speed = 2;
         } else if (handle_val > 400 && handle_val <= 600) {
@@ -508,7 +509,6 @@ jQuery('.instruction_block').on('click', function(event) {
   jQuery('.reverce_acept').on('click', function(event) {
     cur_animation_val = 0;
     count_animation = 0;
-    console.log(mode_speed);
     jQuery('.speed_slover').addClass('hidden');
     jQuery('.speed_faster').addClass('hidden');
     jQuery('.speed_closed').removeClass('hidden');

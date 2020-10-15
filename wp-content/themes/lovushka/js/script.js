@@ -503,6 +503,7 @@ jQuery('.instruction_block').on('click', function(event) {
     count_animation = 0;
     mode_speed = 0;
     jQuery('.protocol').css('transform', 'rotate(0deg)');
+    clearInterval(phaseOne);
   });
   jQuery('.reverce_acept').on('click', function(event) {
     cur_animation_val = 0;

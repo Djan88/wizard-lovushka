@@ -471,6 +471,7 @@ jQuery('.instruction_block').on('click', function(event) {
   //
   jQuery( function() {
     var handle = jQuery("#custom-handle");
+    var handle_val;
     jQuery("#slider").slider({
       min: 0,
       max: 200,
@@ -479,7 +480,47 @@ jQuery('.instruction_block').on('click', function(event) {
       },
       slide: function( event, ui ) {
         // handle.text( ui.value );
+        handle_val = ui.value;
+      },
+      stop: function( event, ui ) {
+        if (handle_val <= 400) {
+          mode_speed = 2;
+        } else if (handle_val > 400 && handle_val <= 600) {
+          mode_speed = 4;
+        } else if (handle_val > 600 && handle_val <= 850) {
+          mode_speed = 6;
+        } else if (handle_val > 850) {
+          mode_speed = 8;
+        }
+        jQuery('.reverce_acept').removeClass('hidden');
       }
     });
+  });
+  jQuery('.reverce_acept').on('click', function(event) {
+    cur_animation_val = 0;
+    count_animation = 0;
+    jQuery('.speed_slover').addClass('hidden');
+    jQuery('.speed_faster').addClass('hidden');
+    jQuery('.speed_closed').removeClass('hidden');
+    phaseOne = setInterval(function(){
+      if (count_animation <= 240){                      //4
+        jQuery('.protocol').css('transform', 'rotate('+cur_animation_val+'deg)');
+        count_animation += 0.5;
+        cur_animation_val -= mode_speed;
+        jQuery('.lovushka_speed').text(mode_speed);
+        console.log(count_animation);
+      } else {
+          clearInterval(phaseOne);
+          jQuery('.lovushka_speed').text(0);
+          cur_animation_val = 0;
+          count_animation = 0;
+          mode_speed = 0;
+          mode = false;
+          jQuery('.protocol').css('transform', 'rotate(0deg)');
+          jQuery('.speed_slover').removeClass('hidden');
+          jQuery('.speed_faster').removeClass('hidden');
+          jQuery('.speed_closed').addClass('hidden');
+      } 
+    }, 500);
   });
 });

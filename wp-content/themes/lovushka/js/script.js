@@ -484,7 +484,7 @@ jQuery('.instruction_block').on('click', function(event) {
       },
       stop: function( event, ui ) {
         console.log(handle_val);
-        jQuery().removeAttr('style');
+        jQuery('.reverce_acept').removeAttr('style');
         if (handle_val <= 60) {
           mode_speed = 2;
         } else if (handle_val > 60 && handle_val <= 111) {
@@ -494,7 +494,6 @@ jQuery('.instruction_block').on('click', function(event) {
         } else if (handle_val > 160) {
           mode_speed = 8;
         }
-        jQuery('.reverce_acept').removeClass('hidden');
       }
     });
   });

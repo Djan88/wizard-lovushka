@@ -418,6 +418,11 @@
                     <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Регрессивное центрирование</button>
                   </div>
                 </div>
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block">
+                  <div class="btn-group revece_mode">
+                    <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">The Regress Centering</button>
+                  </div>
+                </div>
               <?php } ?>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                 <div class="btn-group speed_control">

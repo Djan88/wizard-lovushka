@@ -476,6 +476,12 @@ jQuery('.instruction_block').on('click', function(event) {
 
   // Регрессивное центрирование
 
+
+  jQuery('.reverce_clean_graph').on('click', function(event) {
+    jQuery('.knife_rate').detach();
+    jQuery(this).addClass('hidden');
+  });
+
   jQuery( function() {
     var handle = jQuery("#custom-handle");
     var handle_val;
@@ -490,7 +496,6 @@ jQuery('.instruction_block').on('click', function(event) {
         handle_val = ui.value;
         knife = jQuery('body').find('#custom-handle').css('left');
         knife = parseFloat(knife.substr(0, knife.length - 2)).toFixed();
-        console.log(knife);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;
         // console.log('test '+knifeDateDiff);
@@ -498,14 +503,15 @@ jQuery('.instruction_block').on('click', function(event) {
         knife_rate_class_dotted = '.knife_rate-'+knife;
         jQuery('.reverce_graph').append('<div class='+knife_rate_class+'></div>');
         jQuery(knife_rate_class_dotted).addClass('knife_rate').css({
-            left: +knife+10+'px',
-            height: knifeDateDiff+'px'
+          left: +knife+10+'px',
+          height: knifeDateDiff+'px'
         });
         knifeDateOld = knifeDate;
       },
       stop: function( event, ui ) {
         console.log(handle_val);
         jQuery('.reverce_acept').removeAttr('style');
+        jQuery('.wizard_clean_graf').fadeIn(500).removeClass('hidden');
         if (handle_val <= 60) {
           mode_speed = 2;
         } else if (handle_val > 60 && handle_val <= 111) {

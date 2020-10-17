@@ -703,6 +703,7 @@
         <div class="modal-footer">
           <button class="btn btn-success ru_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Применить</button>
           <button class="btn btn-success en_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Acept</button>
+          <button class="btn btn-warning reverce_clean_graph hidden pull-left"><i class="fa fa-trash"></i></button>
           <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
           <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
         </div>

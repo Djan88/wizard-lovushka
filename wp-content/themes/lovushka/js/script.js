@@ -489,7 +489,7 @@ jQuery('.instruction_block').on('click', function(event) {
         // handle.text( ui.value );
         handle_val = ui.value;
         knife = jQuery('body').find('#custom-handle').css('left');
-        knife = knife.substr(0, knife.length - 2).toFixed();
+        knife = parseFloat(knife.substr(0, knife.length - 2)).toFixed();
         console.log(knife);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;

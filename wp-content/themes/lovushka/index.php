@@ -412,17 +412,30 @@
                   <button type="button" data-mode="doubt" data-speed="8" class="btn btn-default easy_mode_item easy_mode_item_doubt">I doubt it</button>
                 </div>
               </div>
-              <?php if(current_user_can('administrator')){ ?>
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
-                  <div class="btn-group revece_mode">
-                    <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Регрессивное центрирование</button>
+              <?php if(is_user_logged_in()){ ?>
+                <?php if(current_user_can('administrator') || current_user_can('author')){ ?>
+                  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
+                    <div class="btn-group revece_mode">
+                      <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">Регрессивное центрирование</button>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block">
-                  <div class="btn-group revece_mode">
-                    <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">The Regress Centering</button>
+                  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block">
+                    <div class="btn-group revece_mode">
+                      <button type="button" class="btn btn-default revece_bc" data-toggle="modal" data-target="#revece_bc">The Regress Centering</button>
+                    </div>
                   </div>
-                </div>
+                <?php } else { ?>
+                  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
+                    <div class="btn-group revece_mode">
+                      <button type="button" class="btn btn-default" data-toggle="popover" data-placement="top" data-original-title="Регрессивное центрирование" data-content='Регрессивное центрирование доступно для пользователей расширенной лицензии'>Регрессивное центрирование</button>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 en_block">
+                    <div class="btn-group revece_mode">
+                      <button type="button" class="btn btn-default" data-toggle="popover" data-placement="top" data-original-title="The Regress Centering" data-content='The Regress Centering is available for extended license users'>The Regress Centering</button>
+                    </div>
+                  </div>
+                <?php } ?>
               <?php } ?>
               <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ru_block">
                 <div class="btn-group speed_control">

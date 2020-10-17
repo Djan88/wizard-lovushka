@@ -488,7 +488,7 @@ jQuery('.instruction_block').on('click', function(event) {
       slide: function( event, ui ) {
         // handle.text( ui.value );
         handle_val = ui.value;
-        knife = jQuery('.reverce_graph_handle').css('top');
+        knife = jQuery('.reverce_graph_handle').css('left');
         knife = knife.substr(0, knife.length - 2);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;

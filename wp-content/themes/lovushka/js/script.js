@@ -502,6 +502,7 @@ jQuery('.instruction_block').on('click', function(event) {
         knife = knife.substr(0, knife.length - 2);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;
+        console.log('test '+knifeDateDiff);
         knife_rate_class = 'knife_rate-'+knife;
         knife_rate_class_dotted = '.knife_rate-'+knife;
         jQuery('.wizard_grafic').append('<div class='+knife_rate_class+'></div>');

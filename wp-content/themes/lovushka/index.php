@@ -686,15 +686,15 @@
           <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Регрессивное Центрирование</span><span class="hidden en_block">The Regress Centering</span></h4>
         </div>
         <div class="modal-text">
+          <div class="reverce_graph">
+            <div class="reverce_graph_handle"><i class="fa fa-arrows-alt-h"></i></div>
+          </div>
           <div class="reverce_age">
             <table>
               <tr>
                 <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
               </tr>
             </table>
-          </div>
-          <div class="reverce_graph">
-            <div class="reverce_graph_handle"><i class="fa fa-arrows-alt-h"></i></div>
           </div>
           <div id="slider">
             <div id="custom-handle" class="ui-slider-handle"></div>

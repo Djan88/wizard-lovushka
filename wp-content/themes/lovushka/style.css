@@ -504,13 +504,14 @@ button.btn.btn_login
 }
 #slider div#custom-handle
 {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     color: transparent;
     top: -.7em;
     background: #fda00c;
     border: 1px solid #fff;
     outline: none;
+    border-radius: 6px;
 }
 .reverce_age table
 {
@@ -531,7 +532,7 @@ button.btn.btn_login
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     max-width: 200px;
-    background: #5e1043;
+    background: #fda00c;
     position: absolute;
     top: 10px;
     -webkit-transition: width 0.5s linear;

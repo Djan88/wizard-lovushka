@@ -489,7 +489,6 @@ jQuery('.instruction_block').on('click', function(event) {
         // handle.text( ui.value );
         handle_val = ui.value;
         knife = handle_val;
-        knife = knife.substr(0, knife.length - 2);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;
         console.log('test '+knifeDateDiff);

@@ -511,7 +511,7 @@ jQuery('.instruction_block').on('click', function(event) {
       stop: function( event, ui ) {
         console.log(handle_val);
         jQuery('.reverce_acept').removeAttr('style');
-        jQuery('.wizard_clean_graf').removeAttr('style')
+        jQuery('.reverce_clean_graph').removeAttr('style')
         if (handle_val <= 60) {
           mode_speed = 2;
         } else if (handle_val > 60 && handle_val <= 111) {

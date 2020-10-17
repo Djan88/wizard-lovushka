@@ -489,10 +489,11 @@ jQuery('.instruction_block').on('click', function(event) {
         // handle.text( ui.value );
         handle_val = ui.value;
         knife = jQuery('body').find('#custom-handle').css('left');
+        console.log(knife);
         knife = knife.substr(0, knife.length - 2);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;
-        console.log('test '+knifeDateDiff);
+        // console.log('test '+knifeDateDiff);
         knife_rate_class = 'knife_rate-'+knife;
         knife_rate_class_dotted = '.knife_rate-'+knife;
         jQuery('.reverce_graph').append('<div class='+knife_rate_class+'></div>');

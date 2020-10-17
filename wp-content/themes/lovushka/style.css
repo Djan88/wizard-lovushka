@@ -520,6 +520,31 @@ button.btn.btn_login
 {
     text-align: center;
 }
+.reverce_graph
+{
+    position: relative;
+}
+.knife_rate 
+{
+    height: 0;
+    width: 3px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    max-width: 200px;
+    background: #5e1043;
+    position: absolute;
+    top: 10px;
+    -webkit-transition: width 0.5s linear;
+    -moz-transition: width 0.5s linear;
+    transition: width 0.5s linear;
+}
+
+
+
+
+
+
+
 @media (max-width: 991px) {
     /*.set, .manual, .set_disabled
     {

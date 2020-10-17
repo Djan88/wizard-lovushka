@@ -693,6 +693,9 @@
               </tr>
             </table>
           </div>
+          <div class="reverce_graph">
+            <div class="reverce_graph_handle"><i class="fa fa-arrows-alt-h"></i></div>
+          </div>
           <div id="slider">
             <div id="custom-handle" class="ui-slider-handle"></div>
           </div>

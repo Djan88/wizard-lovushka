@@ -469,6 +469,28 @@ jQuery('.instruction_block').on('click', function(event) {
   })
 
   // Регрессивное центрирование
+
+  // Dragging
+  jQuery('.reverce_graph_handle').draggable({
+    containment: '.reverce_graph',
+    axis: 'x',
+    drag: function() {
+      // jQuery('.wizard_clean_graf').fadeIn(500).removeClass('hidden');
+      knife = jQuery('.reverce_graph_handle').css('top');
+      knife = knife.substr(0, knife.length - 2);
+      knifeDate = new Date();
+      knifeDateDiff = knifeDate - knifeDateOld;
+      knife_rate_class = 'knife_rate-'+knife;
+      knife_rate_class_dotted = '.knife_rate-'+knife;
+      jQuery('.wizard_grafic').append('<div class='+knife_rate_class+'></div>');
+      jQuery(knife_rate_class_dotted).addClass('knife_rate').css({
+          left: +knife+30+'px',
+          height: knifeDateDiff*2+'px'
+      });
+      knifeDateOld = knifeDate;
+    }
+  });
+
   jQuery( function() {
     var handle = jQuery("#custom-handle");
     var handle_val;

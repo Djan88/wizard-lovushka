@@ -488,7 +488,8 @@ jQuery('.instruction_block').on('click', function(event) {
       slide: function( event, ui ) {
         // handle.text( ui.value );
         handle_val = ui.value;
-        knife = handle_val;
+        knife = jQuery('body').find('#custom-handle').css('left');
+        knife = knife.substr(0, knife.length - 2);
         knifeDate = new Date();
         knifeDateDiff = knifeDate - knifeDateOld;
         console.log('test '+knifeDateDiff);
@@ -496,7 +497,7 @@ jQuery('.instruction_block').on('click', function(event) {
         knife_rate_class_dotted = '.knife_rate-'+knife;
         jQuery('.reverce_graph').append('<div class='+knife_rate_class+'></div>');
         jQuery(knife_rate_class_dotted).addClass('knife_rate').css({
-            left: +knife*3+'px',
+            left: +knife+30+'px',
             height: knifeDateDiff*2+'px'
         });
         knifeDateOld = knifeDate;

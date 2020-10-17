@@ -499,7 +499,7 @@ jQuery('.instruction_block').on('click', function(event) {
         jQuery('.reverce_graph').append('<div class='+knife_rate_class+'></div>');
         jQuery(knife_rate_class_dotted).addClass('knife_rate').css({
             left: +knife+20+'px',
-            height: knifeDateDiff*2+'px'
+            height: knifeDateDiff+'px'
         });
         knifeDateOld = knifeDate;
       },

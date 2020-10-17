@@ -507,7 +507,7 @@ button.btn.btn_login
     width: 50px;
     height: 50px;
     color: transparent;
-    top: -.7em;
+    top: -1.3em;
     background: #fda00c;
     border: 1px solid #fff;
     outline: none;
@@ -525,6 +525,11 @@ button.btn.btn_login
 {
     position: relative;
 }
+.reverce_graph 
+{
+    height: 150px;
+    margin-bottom: -10px;
+}
 .knife_rate 
 {
     height: 0;
@@ -534,7 +539,7 @@ button.btn.btn_login
     max-width: 200px;
     background: #fda00c;
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     -webkit-transition: width 0.5s linear;
     -moz-transition: width 0.5s linear;
     transition: width 0.5s linear;

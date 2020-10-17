@@ -479,7 +479,7 @@ jQuery('.instruction_block').on('click', function(event) {
 
   jQuery('.reverce_clean_graph').on('click', function(event) {
     jQuery('.knife_rate').detach();
-    jQuery(this).addClass('hidden');
+    jQuery(this).css('display', 'none');
   });
 
   jQuery( function() {
@@ -511,7 +511,7 @@ jQuery('.instruction_block').on('click', function(event) {
       stop: function( event, ui ) {
         console.log(handle_val);
         jQuery('.reverce_acept').removeAttr('style');
-        jQuery('.wizard_clean_graf').fadeIn(500).removeClass('hidden');
+        jQuery('.wizard_clean_graf').removeAttr('style')
         if (handle_val <= 60) {
           mode_speed = 2;
         } else if (handle_val > 60 && handle_val <= 111) {

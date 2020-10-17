@@ -9,6 +9,12 @@ jQuery(document).ready(function () {
       mode = false,
       phaseOne,
       lang,
+      knife,
+      knifeDate,
+      knifeDateOld,
+      knifeDateDiff,
+      knife_rate_class,
+      knife_rate_class_dotted,
       supportsStorage = function(){
           try {
               return 'localStorage' in window && window['localStorage'] !== null;

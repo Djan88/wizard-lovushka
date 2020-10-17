@@ -480,6 +480,7 @@ jQuery('.instruction_block').on('click', function(event) {
   jQuery('.reverce_clean_graph').on('click', function(event) {
     jQuery('.knife_rate').detach();
     jQuery(this).css('display', 'none');
+    jQuery( ".selector" ).slider( "value", 0 );
   });
 
   jQuery( function() {

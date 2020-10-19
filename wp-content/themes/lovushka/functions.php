@@ -28,6 +28,14 @@ function sp_login_redirect($redirect_to, $request, $user){
     return home_url();
 }
 
+add_filter('wau_payment_form_args', 'wau_exclude_user_balance_payment');
+function wau_exclude_user_balance_payment($args){
+
+  $args['pay_systems_not_in'][] = 'user_balance';
+  
+  return $args;
+}
+
 //fix for cookie error while login.
 setcookie(TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN); 
 if ( SITECOOKIEPATH != COOKIEPATH ) 

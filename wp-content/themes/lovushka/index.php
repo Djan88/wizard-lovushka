@@ -498,7 +498,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-left" style="padding-top: 7px;">
-            v 2.3 | 2020 | <a class="ru_block" href="/oferta">Оферта</a><?php if(is_user_logged_in()){ ?> | <button class="btn btn-warning btn-xs" id="upgrade_btn">Полная версия</button><?php } ?>
+            v 2.3 | 2020 | <a class="ru_block" href="/oferta">Оферта</a><?php if(is_user_logged_in()){ ?> | <button class="btn btn-success btn-xs" id="upgrade_btn">Полная версия</button><?php } ?>
           </div>
           <?php if(is_user_logged_in()){ ?>
           <div class="pull-right">

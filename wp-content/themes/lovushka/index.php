@@ -498,9 +498,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-left" style="padding-top: 7px;">
-            <a href="/">WizardLovushka</a> | v 2.3 | &copy; 
-            <a class="ru_block" href="http://www.chikurov.com" target="_blank">Юрий Чикуров</a>
-            <a class="hidden en_block" href="http://www.chikurov.com" target="_blank">Yuri Chikurov</a> | 2020<?php if(is_user_logged_in()){ ?> | <a class="ru_block" href="/kabinet">Личный кабинет</a><a class="hidden en_block" href="/kabinet">Personal Area</a><?php } ?> | <a class="ru_block" href="/oferta">Оферта</a>
+            v 2.3 | 2020 | <a class="ru_block" href="/oferta">Оферта</a><?php if(is_user_logged_in()){ ?> | <button class="btn btn_warning btn-sm" id="upgrade_btn">Полная версия</button><?php } ?>
           </div>
           <?php if(is_user_logged_in()){ ?>
           <div class="pull-right">
@@ -711,6 +709,31 @@
           </div>
           <div id="slider">
             <div id="custom-handle" class="ui-slider-handle"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success ru_block reverce_acept pull-left" data-dismiss="modal" style="display: none;">Применить</button>
+          <button class="btn btn-success en_block hidden reverce_acept pull-left" data-dismiss="modal" style="display: none;">Acept</button>
+          <button class="btn btn-warning reverce_clean_graph pull-left" style="display: none;"><i class="fa fa-trash"></i></button>
+          <button class="btn btn-primary ru_block" data-dismiss="modal">Закрыть</button>
+          <button class="btn btn-primary hidden en_block" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><span class="ru_block">Расширенная версия</span><span class="hidden en_block">Full access</span></h4>
+        </div>
+        <div class="modal-text">
+          <div class="access_title">
+            Вы можете перейти на Расширенную весию программы, это откроет доступ к режимам "Пересмотр личной истории" и "Регрессивное центрирование". Чтоб узнать условия перехода заполните форму.
+          </div>
+          <div class="access_form">
+            <?php echo do_shortcode('[contact-form-7 id="4" title="Контактная форма 1"]')?>
           </div>
         </div>
         <div class="modal-footer">

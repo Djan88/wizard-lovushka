@@ -476,6 +476,12 @@ jQuery('.instruction_block').on('click', function(event) {
 
   // Регрессивное центрирование
 
+  jQuery('#upgrade_btn').on('click', function(event) {
+    jQuery('#upgrade').modal('show');
+  });
+
+
+  // Регрессивное центрирование
 
   jQuery('.reverce_clean_graph').on('click', function(event) {
     jQuery( "#slider" ).slider( "value", 0 );

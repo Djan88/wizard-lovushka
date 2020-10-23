@@ -555,6 +555,7 @@ button#upgrade_btn
 .access_title
 {
     font-size: 17px!important;
+    padding-bottom: 20px; 
 }
 
 

@@ -548,7 +548,7 @@ button#upgrade_btn
 {
     margin-top: -3px;
 }
-button#upgrade_btn input
+#upgrade input
 {
     max-width: 100%;
 }

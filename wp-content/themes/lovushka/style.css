@@ -552,7 +552,10 @@ button#upgrade_btn
 {
     max-width: 100%;
 }
-
+.access_title
+{
+    font-size: 17px!important;
+}
 
 
 

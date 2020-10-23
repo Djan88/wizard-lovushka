@@ -498,7 +498,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-left" style="padding-top: 7px;">
-            v 2.3 | 2020 | <a class="ru_block" href="/oferta">Оферта</a><?php if(is_user_logged_in()){ ?> | <button class="btn btn_warning btn-sm" id="upgrade_btn">Полная версия</button><?php } ?>
+            v 2.3 | 2020 | <a class="ru_block" href="/oferta">Оферта</a><?php if(is_user_logged_in()){ ?> | <button class="btn btn-warning btn-xs" id="upgrade_btn">Полная версия</button><?php } ?>
           </div>
           <?php if(is_user_logged_in()){ ?>
           <div class="pull-right">
@@ -722,7 +722,7 @@
     </div>
   </div>
   <div class="modal fade" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

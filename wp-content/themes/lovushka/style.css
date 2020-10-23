@@ -544,7 +544,10 @@ button.btn.btn_login
     -moz-transition: width 0.5s linear;
     transition: width 0.5s linear;
 }
-
+button#upgrade_btn 
+{
+    margin-top: -3px;
+}
 
 
 
